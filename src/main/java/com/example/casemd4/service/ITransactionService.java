@@ -1,7 +1,7 @@
 package com.example.casemd4.service;
 
 
-import javax.transaction.Transaction;
+import com.example.casemd4.model.Transactions;
 
-public interface ITransactionService extends IGenerateService<Transaction>{
+public interface ITransactionService<T> extends IGenerateService<Transactions>{
 }
