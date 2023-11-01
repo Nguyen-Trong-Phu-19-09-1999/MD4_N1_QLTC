@@ -22,7 +22,9 @@ public class RoleController {
     }
     @GetMapping()
     List<Role> listRole(){
+        System.out.println("a");
         return iRoleRepository.findAll();
     }
+
 
 }
