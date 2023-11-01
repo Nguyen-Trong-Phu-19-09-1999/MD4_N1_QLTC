@@ -1,0 +1,314 @@
+.header-container {
+    background: #fff;
+    box-shadow: -1px 4px 20px 1px #f1f1f185;
+}
+.left-menu.hide {
+    width: 0;
+}
+header .header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+img.icon {
+    width: 25px;
+}
+
+.header-left {
+    justify-content: space-between;
+    align-items: center;
+}
+ul.navbar-item {
+    display: flex;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.user-profile-dropdown {
+    margin-left: 20px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-month-dropdown {
+    margin-right: 10px;
+}
+
+.nav-link .user {
+    padding: 6px 0;
+    font-size: 25px;
+    color: #9999;
+    position: relative;
+}
+.user {
+    margin-left: 10px;
+}
+p.count {
+    position: absolute;
+    top: 0;
+    font-size: 10px;
+    color: var(--white-color);
+    height: 13px;
+    width: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: -3px;
+}
+
+.logo {
+    width: 240px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    background: var(--main-grident);
+    color: var(--white-color);
+}
+
+a.sidebarCollapse {
+    padding: 20px;
+    color: #9999;
+    font-size: 20px;
+}
+.dropdown-menu {
+    z-index: var(--z-fixed);
+    max-width: 15rem;
+    right: -5px !important;
+    left: auto !important;
+    min-width: 14rem;
+    padding: 0;
+    border-radius: 5px;
+}
+img.user-note{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+.dp-main-menu {
+    display: inline-grid;
+    width: 100%;
+    box-shadow: 0 4px 20px 0 #ddd;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+.dp-main-menu a {
+    font-size: 13px;
+    color: var(--second-color);
+    width: 100%;
+    white-space: initial;
+    line-height: 18px;
+    border-bottom: 1px solid #f7f7f7;
+    align-items: center;
+    padding: 10px;
+}
+.message-item {
+    display: flex;
+}
+.user-note{
+    margin-right: 8px;
+    width: 35px;
+    height: 35px;
+}
+.note-info-desmis{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.user-notify-info{
+    line-height: 18px;
+}
+.status-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--main-grident);
+    color: var(--white-color);
+}
+p.note-name{
+    font-size: 13px;
+    font-weight: 500;
+}
+p.note-time {
+    font-size: 11px;
+}
+.dp-main-menu a:last-child {
+    border-bottom: 0;
+}
+img.sms-user {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+p.m-note-name{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--second-color);
+}
+p.user-role{
+    font-size: 12px;
+    color: var(--main-color);
+}
+.media{
+    background: var(--main-color);
+    text-align: center;
+    padding-top: 10px;
+}
+img.img-fluid.me-2{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.media-body{
+    margin-top: 10px;
+    line-height: 20px;
+    padding-bottom: 10px;
+}
+.media-body h5{
+    font-weight: 700;
+    color: var(--white-color);
+}
+.media-body p{
+    font-size: 13px;
+    color: var(--white-color);
+    font-weight: 500;
+}
+a.dropdown-menu a span {
+    color: var(--main-color);
+}
+.dropdown-menu a span{
+    color: var(--main-color);
+    padding-right: 10px;
+}
+p.status-link span {
+    padding: 0;
+    color: #ffffff;
+}
+.left-menu{
+    height: 100vh;
+    width: 240px;
+    position: fixed;
+    box-shadow: 3px -1px 19px 1px #efeeee;
+    overflow-y: scroll;
+    transition: .5s;
+    margin-top: -15px ;
+    background: var(--white-color);
+}
+nav.animated {
+    position: relative;
+}
+.left-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.left-menu::-webkit-scrollbar-track {
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.left-menu::-webkit-scrollbar-thumb {
+
+    border-radius: 5px;
+    background: linear-gradient(0deg, rgba(180, 58, 112, 1) 0%, rgba(232, 37, 169, 1) 54%);
+}
+ul#sidebar {
+    margin: 0;
+    padding: 0;
+}
+ul#sidebar li {
+    transition: .3s;
+    border-left: 5px solid #ffffff;
+}
+ul#sidebar li a {
+    display: block;
+    padding: 7px 15px;
+    transition: .2s;
+    font-size: 12px;
+    font-weight: 500;
+    color: #676767 ;
+}
+ul#sidebar li:hover {
+    border-left: 5px solid var(--main-color);
+}
+ul#sidebar li a:hover {
+    color: var(--main-color);
+    background: #f7f7f7;
+}
+li.active {
+    border-left: 5px solid var(--main-color);
+}
+li.active a{
+    color: var(--main-color);
+    background: #f9f9f9;
+}
+li.active a i {
+    padding-right: 7px;
+    font-size: 14px;
+}
+.sub-menu li a i{
+    padding-right: 8px;
+    font-size: 14px;
+}
+.fa-caret-down.right {
+    float: right;
+}
+.fa-caret-up{
+    float: right;
+}
+@media only screen and (max-width: 1200px){
+    .left-menu {
+        height: 100vh;
+        width: 0;
+        position: absolute;
+        box-shadow: 3px -1px 19px 1px #ddd;
+        overflow-y: scroll;
+        background: var(--white-color);
+        transition: .5s;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        margin-top: -5px;
+        z-index: 99;
+    }
+    .content-wrapper {
+        margin-left: 0;
+    }
+    .left-menu.hide {
+        transition: .5s;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        width: 200px;
+        position: fixed;
+        z-index: 99;
+    }
+}
+@media only screen and (min-width: 769px) {
+    .left-menu {
+        height: 100vh;
+        width: 200px;
+        position: fixed;
+        box-shadow: 3px -1px 19px 1px #ddd;
+        overflow-y: scroll;
+        background: var(--white-color);
+        transition: .5s;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        margin-top: -5px;
+        z-index: 99;
+    }
+    .left-menu.hide {
+        margin-left: 0;
+        width: 0;
+        position: absolute;
+    }
+}
