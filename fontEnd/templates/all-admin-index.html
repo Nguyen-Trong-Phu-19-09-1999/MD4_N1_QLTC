@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Dev Internal</title>
+    <meta name="description" content="AdminLTE2">
+    <meta name="keywords" content="AdminLTE2">
+    <link rel="icon" href="../static/img/R.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/ionicons.min.css">
+    <link rel="stylesheet" href="../static/css/blue.css">
+    <link rel="stylesheet" href="../static/css/morris.css">
+    <link rel="stylesheet" href="../static/css/jquery-vector-map-1.2.2.css">
+    <link rel="stylesheet" href="../static/css/datepicker3.css">
+    <link rel="stylesheet" href="../static/css/dateRangePicker.css">
+    <link rel="stylesheet" href="../static/css/bootstrap3-html5.min.css">
+    <link rel="stylesheet" href="../static/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../static/css/jquery.tree-table.css">
+    <link rel="stylesheet" href="../static/css/jquery.tree-table.theme.default.css">
+    <link rel="stylesheet" href="../static/css/select2.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-color-picker.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" href="../static/css/AdminLTE.css">
+    <link rel="stylesheet" href="../static/css/_all-skins.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/ion.rangeSlider.css">
+    <link rel="stylesheet" href="../static/css/ion.rangeSlider.skinNice.css">
+    <link rel="stylesheet" href="../static/css/slider.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="../static/css/calendar.css">
+</head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+    <!-- header-->
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="/home/" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>Dev</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Dev</b> Internal</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Tin nhắn</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="../static/img/user2-160x160.jpg" class="img-circle"
+                                                     alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Lý Hạo
+                                                <small><i class="fa fa-clock-o"></i> 5 phút trước</small>
+                                            </h4>
+                                            <p>Bạn có đang online không?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="../static/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Lý Hạo
+                                                <small><i class="fa fa-clock-o"></i> 5 phút trước</small>
+                                            </h4>
+                                            <p>Bạn có đang online không?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="../static/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Lý Hạo
+                                                <small><i class="fa fa-clock-o"></i> 5 phút trước</small>
+                                            </h4>
+                                            <p>Bạn có đang online không?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="../static/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Lý Hạo
+                                                <small><i class="fa fa-clock-o"></i> 5 phút trước</small>
+                                            </h4>
+                                            <p>Bạn có đang online không?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="../static/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Lý Hạo
+                                                <small><i class="fa fa-clock-o"></i> 5 phút trước</small>
+                                            </h4>
+                                            <p>Bạn có đang online không?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">See All Messages</a></li>
+                        </ul>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Thông báo</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
+                                            may not
+                                            fit into the page and may cause design problems
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-red"></i> 5 new members joined
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-user text-red"></i> You changed your username
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">View all</a></li>
+                        </ul>
+                    </li>
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <li class="dropdown tasks-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-flag-o"></i>
+                            <span class="label label-danger">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Sự kiện</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li>
+                                        <!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Design some buttons
+                                                <small class="pull-right">20%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                    <span class="sr-only">20% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li>
+                                        <!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Create a nice theme
+                                                <small class="pull-right">40%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                    <span class="sr-only">40% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li>
+                                        <!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Some task I need to do
+                                                <small class="pull-right">60%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                    <span class="sr-only">60% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li>
+                                        <!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Make beautiful transitions
+                                                <small class="pull-right">80%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                    <span class="sr-only">80% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">View all tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="../static/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <span class="hidden-xs">Hữu Sỹ</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="../static/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                <p>
+                                    Hữu Sỹ - Quản trị viên
+                                    <small>Đăng nhập lần cuối: 11:20AM</small>
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Thay đổi mật khẩu</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- header /-->
+    <!-- main-sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../static/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Hữu Sỹ</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Đang online</a>
+                </div>
+            </div>
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">Home</li>
+                <li id="admin-index"><a href="/home/"><i class="fa fa-dashboard"></i>
+                    <span>Home</span></a></li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-folder"></i> <span>Trang chủ</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li id="admin-login">
+                            <a href="/home/login">
+                                <i class="fa fa-sign-in"></i> Login
+                            </a>
+                        </li>
+                        <li id="admin-register">
+                            <a href="/home/register">
+                                <i class="fa fa-edit"></i> Register
+                            </a>
+                        </li>
+                        <li id="admin-404">
+                            <a href="all-admin-404.html">
+                                <i class="fa fa-exclamation-circle"></i> 404 Error
+                            </a>
+                        </li>
+                        <li id="admin-500">
+                            <a href="all-admin-500.html">
+                                <i class="fa fa-server"></i> 500 Error
+                            </a>
+                        </li>
+                        <li id="admin-blank">
+                            <a href="all-admin-blank.html">
+                                <i class="fa fa-empire"></i> Rỗng
+                            </a>
+                        </li>
+                        <li id="admin-datalist" class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Data</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/home/data"><i class="fa fa-user-circle"></i> Prodcut</a></li>
+                                <li><a href=""><i class="fa fa-shopping-cart"></i> Order</a></li>
+                                <li><a href=""><i class="fa fa-calendar"></i> Calendar <i class="fa fa-bell"></i> Notifications</a></li>
+                                <li><a href=""><i class="fa fa-briefcase"></i> Job</a></li>
+                                <li><a href=""><i class="fa fa-building"></i> Department</a></li>
+                                <li><a href=""><i class="fa fa-percent"></i> Employee</a></li>
+                                <li><a href=""><i class="fa fa-bell"></i> Account</a></li>
+                            </ul>
+                        </li>
+
+                        <li id="admin-dataform">
+                            <a href="all-admin-dataform.html">
+                                <i class="fa fa-file"></i> From
+                            </a>
+                        </li>
+
+                        <li id="admin-profile">
+                            <a href="all-admin-profile.html">
+                                <i class="fa fa-user"></i> Profile
+                            </a>
+                        </li>
+
+                        <li id="admin-invoice">
+                            <a href="all-admin-invoice.html">
+                                <i class="fa fa-inverse"></i> Invoice
+                            </a>
+                        </li>
+
+                        <li id="admin-invoice-print">
+                            <a href="all-admin-invoice-print.html">
+                                <i class="fa fa-print"></i> Invoice Print
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i> <span>Biểu đồ</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="charts-chartjs">
+                            <a href="all-charts-chartjs.html">
+                                <i class="fa fa-circle-o"></i> ChartJS
+                            </a>
+                        </li>
+
+                        <li id="charts-morris">
+                            <a href="all-charts-morris.html">
+                                <i class="fa fa-circle-o"></i> Morris Charts
+                            </a>
+                        </li>
+
+                        <li id="charts-flot">
+                            <a href="all-charts-flot.html">
+                                <i class="fa fa-circle-o"></i> Flot Charts
+                            </a>
+                        </li>
+
+                        <li id="charts-inline">
+                            <a href="all-charts-inline.html">
+                                <i class="fa fa-circle-o"></i> Inline Charts
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i> <span>UI</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="elements-general">
+                            <a href="all-elements-general.html">
+                                <i class="fa fa-circle-o"></i> General
+                            </a>
+                        </li>
+
+                        <li id="elements-icons">
+                            <a href="all-elements-icons.html">
+                                <i class="fa fa-circle-o"></i> Icons
+                            </a>
+                        </li>
+
+                        <li id="elements-buttons">
+                            <a href="all-elements-buttons.html">
+                                <i class="fa fa-circle-o"></i> Buttons
+                            </a>
+                        </li>
+
+                        <li id="elements-sliders">
+                            <a href="all-elements-sliders.html">
+                                <i class="fa fa-circle-o"></i> Sliders
+                            </a>
+                        </li>
+
+                        <li id="elements-timeline">
+                            <a href="all-elements-timeline.html">
+                                <i class="fa fa-circle-o"></i> Timeline
+                            </a>
+                        </li>
+
+                        <li id="elements-modals">
+                            <a href="all-elements-modals.html">
+                                <i class="fa fa-circle-o"></i> Modals
+                            </a>
+                        </li>
+
+                        <li id="elements-widgets">
+                            <a href="all-elements-widgets.html">
+                                <i class="fa fa-circle-o"></i> widgets
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Forms</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="form-general">
+                            <a href="all-form-general.html">
+                                <i class="fa fa-circle-o"></i> Cơ bản
+                            </a>
+                        </li>
+
+                        <li id="form-advanced">
+                            <a href="all-form-advanced.html">
+                                <i class="fa fa-circle-o"></i> Nâng cao
+                            </a>
+                        </li>
+
+                        <li id="form-editors">
+                            <a href="all-form-editors.html">
+                                <i class="fa fa-circle-o"></i> Soạn thảo
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-table"></i> <span>Tables</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="tables-simple">
+                            <a href="all-tables-simple.html">
+                                <i class="fa fa-circle-o"></i> Hình thức(Đơn giản hóa)
+                            </a>
+                        </li>
+
+                        <li id="tables-data">
+                            <a href="all-tables-data.html">
+                                <i class="fa fa-circle-o"></i> Bảng dữ liệu
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cube"></i> <span>Mẫu-Quản lý đơn hàng</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="order-manage">
+                            <a href="all-order-manage-list.html">
+                                <i class="fa fa-circle-o"></i> Tất Cả
+                            </a>
+                        </li>
+
+                        <li id="order-cancel">
+                            <a href="all-order-cancel-list.html">
+                                <i class="fa fa-circle-o"></i> Hoàn Hàng
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i> <span>Mẫu-Quản lý du lịch</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="travellog-manage">
+                            <a href="all-travellog-manage-list.html">
+                                <i class="fa fa-circle-o"></i> Danh sách
+                            </a>
+                        </li>
+
+                        <li id="travellog-review">
+                            <a href="all-travellog-review-list.html">
+                                <i class="fa fa-circle-o"></i> Đánh giá
+                            </a>
+                        </li>
+
+                        <li id="travellog-setting">
+                            <a href="all-travellog-setting-edit.html">
+                                <i class="fa fa-circle-o"></i> Cài Đặt
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cogs"></i> <span>Mẫu-Quản trị hệ thống</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="system-setting">
+                            <a href="all-system-setting-edit.html">
+                                <i class="fa fa-circle-o"></i> Cài đặt hệ thống
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+    <!-- main-sidebar /-->
+
+    <!-- content-wrapper -->
+    <div class="content-wrapper">
+
+        <!-- content-header -->
+        <section class="content-header">
+            <h1>
+                Home
+                <small>Information</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="/home/"><i class="fa fa-dashboard"></i> Home</a></li>
+            </ol>
+        </section>
+        <!-- content-header /-->
+        <!-- content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3 th:text="${countOrder}"></h3>
+                            <p>Đơn hàng</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a class="small-box-footer" data-bs-toggle="modal" data-bs-target="#myModal1">
+                            <button class="info">Chi tiết</button>
+                            <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>Tỷ lệ chuyển đổi</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-first-order"></i>
+                        </div>
+                        <a class="small-box-footer">
+                            <button class="info" id="btn-modal">Chi tiết</button>
+                            <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3 th:text="${countCustomer}"></h3>
+                            <p>Người dùng mới</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <a class="small-box-footer" data-bs-toggle="modal" data-bs-target="#myModal3">
+                            <button class="info" id="btn-modalUser">Chi tiết</button>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3 th:text="${countJob}"></h3>
+                            <p>Công việc</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <a class="small-box-footer" data-bs-toggle="modal" data-bs-target="#myModal2">
+                            <button class="info">Chi tiết</button>
+                            <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <i class="fa fa-users"></i>
+                    <h3 class="box-title">Account</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-box">
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <form action="/home/" method="get">
+                                        <button type="submit" class="btn btn-default" title="Refresh"
+                                                onclick="location.reload()"><i class="fa fa-refresh"></i> Load
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-tools pull-right">
+                            <div class="has-feedback">
+                                <form action="/home/" method="get">
+                                    <input type="text" class="form-control input-sm" placeholder="Search" name="keyword"
+                                           th:value="${keyword}">
+                                    <span class="fa fa-search form-control-feedback"></span>
+                                </form>
+                            </div>
+                        </div>
+                        <table id="example" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th class="">Mã</th>
+                                <th class="">UserName</th>
+                                <th class="">Password</th>
+                                <th class="">CustomerName</th>
+                                <th class="">Department</th>
+                                <th class="text-center">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user:${users}">
+                                <td th:text="${user.userId}"></td>
+                                <td th:text="${user.username}"></td>
+                                <td th:text="${user.password}"></td>
+                                <td th:text="${user.customer.customerName}"></td>
+                                <td th:text="${user.department.departmentName}"></td>
+                                <td th:text="${user.status}"></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn bg-olive btn-xs"
+                                            onclick='location.href="all-product-line-edit.html"'>active
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <i class="fa fa-book"></i>
+                    <h3 class="box-title">Employee</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-box">
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <form action="/home/" method="get">
+                                        <button type="submit" class="btn btn-default" title="Refresh"
+                                                onclick="location.reload()"><i class="fa fa-refresh"></i> Load
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-tools pull-right">
+                            <div class="has-feedback">
+                                <form action="/home/home1/" method="get">
+                                    <input type="text" class="form-control input-sm" placeholder="Search" name="keyword"
+                                           th:value="${keyword1}">
+                                    <span class="fa fa-search form-control-feedback"></span>
+                                </form>
+                            </div>
+                        </div>
+                        <table id="dataEmployee" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th class="">Mã nhân viên</th>
+                                <th class="">Tên nhân viên</th>
+                                <th class="">Email</th>
+                                <th class="">Phone</th>
+                                <th class="">Address</th>
+                                <th class="">Lương</th>
+                                <th class="">Phòng ban</th>
+                                <th class="">Địa chỉ</th>
+                                <th class="text-center">Trạng thái</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="customer : ${customers}">
+                                <td th:text="${customer.customerId}"></td>
+                                <td th:text="${customer.customerName}"></td>
+                                <td th:text="${customer.email}"></td>
+                                <td th:text="${customer.phone}"></td>
+                                <td th:text="${customer.address}"></td>
+                                <td th:text="${customer.abc}"></td>
+                                <td th:text="${customer.xyz}"></td>
+                                <td th:text="${customer.role}"></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn bg-olive btn-xs"
+                                            onclick='location.href="all-travellog-manage-edit.html"'>Đang làm việc
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <i class="fa fa-book"></i>
+                    <h3 class="box-title">Calendar</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-box">
+                        <div class="container">
+                            <div class="left">
+                                <div class="calendar">
+                                    <div class="month">
+                                        <i class="fa fa-angle-left prev"></i>
+                                        <div class="date">december 2015</div>
+                                        <i class="fa fa-angle-right next"></i>
+                                    </div>
+                                    <div class="weekdays">
+                                        <div>Sun</div>
+                                        <div>Mon</div>
+                                        <div>Tue</div>
+                                        <div>Wed</div>
+                                        <div>Thu</div>
+                                        <div>Fri</div>
+                                        <div>Sat</div>
+                                    </div>
+                                    <div class="days"></div>
+                                    <div class="goto-today">
+                                        <div class="goto">
+                                            <label>
+                                                <input type="text" placeholder="mm/yyyy" class="date-input"/>
+                                            </label>
+                                            <button class="goto-btn">Go</button>
+                                        </div>
+                                        <button class="today-btn">Today</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="today-date">
+                                    <div class="event-day">wed</div>
+                                    <div class="event-date">12th december 2022</div>
+                                </div>
+                                <div class="events"></div>
+                                <div class="add-event-wrapper">
+                                    <div class="add-event-header">
+                                        <div class="title">Add Event</div>
+                                        <i class="fa fa-times close"></i>
+                                    </div>
+                                    <div class="add-event-body">
+                                        <div class="add-event-input">
+                                            <label>
+                                                <input type="text" placeholder="Event Name" class="event-name"/>
+                                            </label>
+                                        </div>
+                                        <div class="add-event-input">
+                                            <label>
+                                                <input
+                                                        type="text"
+                                                        placeholder="Event Time From"
+                                                        class="event-time-from"
+                                                />
+                                            </label>
+                                        </div>
+                                        <div class="add-event-input">
+                                            <label>
+                                                <input
+                                                        type="text"
+                                                        placeholder="Event Time To"
+                                                        class="event-time-to"
+                                                />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="add-event-footer">
+                                        <button class="add-event-btn">Add Event</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="add-event">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="modal" id="myModal1">
+            <div class="modal-dialog" style="width: 1200px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel1">Hóa đơn mới nhất</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table id="example1" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Tên Hóa Đơn</th>
+                                <th class="text-center">Người gửi</th>
+                                <th class="text-center">Địa chỉ gửi</th>
+                                <th class="text-center">Người nhận</th>
+                                <th class="text-center">Địa chỉ nhận</th>
+                                <th class="text-center">Sản phẩm</th>
+                                <th class="text-center">Giá</th>
+                                <th class="text-center">Ngày tạo hóa đơn</th>
+                                <th class="text-center">Thuế</th>
+                                <th class="text-center">AC</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="order:${orders}">
+                                <td class="text-center" th:text="${order.getOrderId()}"></td>
+                                <td class="text-center" th:text="${order.getNameOrder()}"></td>
+                                <td class="text-center" th:text="${order.getNameGui()}"></td>
+                                <td class="text-center" th:text="${order.getAddressForm()}"></td>
+                                <td class="text-center" th:text="${order.getNameGui()}"></td>
+                                <td class="text-center" th:text="${order.getAddressTo()}"></td>
+                                <td class="text-center" th:text="${order.product.getNameProduct()}"></td>
+                                <td class="text-center" th:text="${order.getPrice()}"></td>
+                                <td class="text-center" th:text="${order.getStartDay()}"></td>
+                                <td class="text-center" th:text="${order.getTax()}"></td>
+                                <td>
+                                    <button type="button" class="btn bg-olive btn-xs"
+                                            onclick='location.href="all-product-line-edit.html"'>Xem
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal2">
+            <div class="modal-dialog" style="width: 1200px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel2">Hóa đơn mới nhất</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table id="example2" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Tên CV</th>
+                                <th class="text-center">Nhiệm vụ</th>
+                                <th class="text-center">Ngày đk</th>
+                                <th class="text-center">Hạn hoàn thành</th>
+                                <th class="text-center">Vị Trí</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="job:${jobs}">
+                                <td class="text-center" th:text="${job.getId()}"></td>
+                                <td class="text-center" th:text="${job.getName()}"></td>
+                                <td class="text-center" th:text="${job.getTask()}"></td>
+                                <td class="text-center" th:text="${job.getStartsTime()}"></td>
+                                <td class="text-center" th:text="${job.getEndTime()}"></td>
+                                <td class="text-center" th:text="${job.department.getDepartmentName()}"></td>
+                                <td>
+                                    <button type="button" class="btn bg-olive btn-xs"
+                                            onclick='location.href="all-product-line-edit.html"'>Xem
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- main-footer -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.0.1
+        </div>
+        <strong>Copyright &copy; 2023 - 2024 <a href="http://www.facebook.com">Trang chủ</a>.</strong> All rights
+        reserved.
+    </footer>
+    <!-- main-footer /-->
+
+</div>
+
+
+<script src="../static/js/jquery-2.2.3.min.js"></script>
+<script src="../static/js/jquery-ui.min.js"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/raphael-min.js"></script>
+<script src="../static/js/morris.min.js"></script>
+<script src="../static/js/jquery.sparkline.min.js"></script>
+<script src="../static/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../static/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="../static/js/jquery.knob.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/bootstrap-datepicker.zh-CN.js"></script>
+<script src="../static/js/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="../static/js/jquery.slimscroll.min.js"></script>
+<script src="../static/js/fastclick.js"></script>
+<script src="../static/js/icheck.min.js"></script>
+<script src="../static/js/app.min.js"></script>
+<script src="../static/js/jquery.treetable.js"></script>
+<script src="../static/js/select2.full.min.js"></script>
+<script src="../static/js/bootstrap-colorpicker.min.js"></script>
+<script src="../static/js/bootstrap-wysihtml5.zh-CN.js"></script>
+<script src="../static/js/bootstrap-markdown.js"></script>
+<script src="../static/js/bootstrap-markdown.zh.js"></script>
+<script src="../static/js/markdown.js"></script>
+<script src="../static/js/to-markdown.js"></script>
+<script src="../static/js/ckeditor.js"></script>
+<script src="../static/js/jquery.inputmask.js"></script>
+<script src="../static/js/jquery.inputmask.date.extensions.js"></script>
+<script src="../static/js/jquery.inputmask.extensions.js"></script>
+<!--<script src="../js/jquery.dataTables.min.js"></script>-->
+<!--<script src="../js/dataTables.bootstrap.min.js"></script>-->
+<script src="../static/js/Chart.min.js"></script>
+<script src="../static/js/jquery.flot.min.js"></script>
+<script src="../static/js/jquery.flot.resize.min.js"></script>
+<script src="../static/js/jquery.flot.pie.min.js"></script>
+<script src="../static/js/jquery.flot.categories.min.js"></script>
+<script src="../static/js/ion.rangeSlider.min.js"></script>
+<script src="../static/js/bootstrap-slider.js"></script>
+<script src="../static/js/bootstrap-datetimepicker.js"></script>
+<script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../static/js/calendar.js"></script>
+</body>
+</html>
