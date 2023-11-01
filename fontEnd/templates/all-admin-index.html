@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../static/css/slider.css">
     <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
     <link rel="stylesheet" href="../static/css/calendar.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -322,73 +323,23 @@
                     </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li id="admin-login">
-                            <a href="/home/login">
-                                <i class="fa fa-sign-in"></i> Login
-                            </a>
-                        </li>
-                        <li id="admin-register">
-                            <a href="/home/register">
-                                <i class="fa fa-edit"></i> Register
-                            </a>
-                        </li>
-                        <li id="admin-404">
-                            <a href="all-admin-404.html">
-                                <i class="fa fa-exclamation-circle"></i> 404 Error
-                            </a>
-                        </li>
-                        <li id="admin-500">
-                            <a href="all-admin-500.html">
-                                <i class="fa fa-server"></i> 500 Error
-                            </a>
-                        </li>
-                        <li id="admin-blank">
-                            <a href="all-admin-blank.html">
-                                <i class="fa fa-empire"></i> Rỗng
-                            </a>
-                        </li>
                         <li id="admin-datalist" class="treeview">
-                            <a href="#">
+                            <a href="#" style="font-size: 15px; margin-left: 25px">
                                 <i class="fa fa-folder"></i> <span>Data</span>
                                 <span class="pull-right-container">
                                   <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu" style="padding-left: 15px">
                                 <li><a href="/home/data"><i class="fa fa-user-circle"></i> Prodcut</a></li>
                                 <li><a href=""><i class="fa fa-shopping-cart"></i> Order</a></li>
-                                <li><a href=""><i class="fa fa-calendar"></i> Calendar <i class="fa fa-bell"></i> Notifications</a></li>
+                                <li><a href=""><i class="fa fa-calendar"></i> Calendar &amp </i>Notify</a></li>
                                 <li><a href=""><i class="fa fa-briefcase"></i> Job</a></li>
                                 <li><a href=""><i class="fa fa-building"></i> Department</a></li>
                                 <li><a href=""><i class="fa fa-percent"></i> Employee</a></li>
                                 <li><a href=""><i class="fa fa-bell"></i> Account</a></li>
                             </ul>
                         </li>
-
-                        <li id="admin-dataform">
-                            <a href="all-admin-dataform.html">
-                                <i class="fa fa-file"></i> From
-                            </a>
-                        </li>
-
-                        <li id="admin-profile">
-                            <a href="all-admin-profile.html">
-                                <i class="fa fa-user"></i> Profile
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice">
-                            <a href="all-admin-invoice.html">
-                                <i class="fa fa-inverse"></i> Invoice
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice-print">
-                            <a href="all-admin-invoice-print.html">
-                                <i class="fa fa-print"></i> Invoice Print
-                            </a>
-                        </li>
-
                     </ul>
                 </li>
                 <li class="treeview">
@@ -421,163 +372,6 @@
                         <li id="charts-inline">
                             <a href="all-charts-inline.html">
                                 <i class="fa fa-circle-o"></i> Inline Charts
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-laptop"></i> <span>UI</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="elements-general">
-                            <a href="all-elements-general.html">
-                                <i class="fa fa-circle-o"></i> General
-                            </a>
-                        </li>
-
-                        <li id="elements-icons">
-                            <a href="all-elements-icons.html">
-                                <i class="fa fa-circle-o"></i> Icons
-                            </a>
-                        </li>
-
-                        <li id="elements-buttons">
-                            <a href="all-elements-buttons.html">
-                                <i class="fa fa-circle-o"></i> Buttons
-                            </a>
-                        </li>
-
-                        <li id="elements-sliders">
-                            <a href="all-elements-sliders.html">
-                                <i class="fa fa-circle-o"></i> Sliders
-                            </a>
-                        </li>
-
-                        <li id="elements-timeline">
-                            <a href="all-elements-timeline.html">
-                                <i class="fa fa-circle-o"></i> Timeline
-                            </a>
-                        </li>
-
-                        <li id="elements-modals">
-                            <a href="all-elements-modals.html">
-                                <i class="fa fa-circle-o"></i> Modals
-                            </a>
-                        </li>
-
-                        <li id="elements-widgets">
-                            <a href="all-elements-widgets.html">
-                                <i class="fa fa-circle-o"></i> widgets
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-edit"></i> <span>Forms</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="form-general">
-                            <a href="all-form-general.html">
-                                <i class="fa fa-circle-o"></i> Cơ bản
-                            </a>
-                        </li>
-
-                        <li id="form-advanced">
-                            <a href="all-form-advanced.html">
-                                <i class="fa fa-circle-o"></i> Nâng cao
-                            </a>
-                        </li>
-
-                        <li id="form-editors">
-                            <a href="all-form-editors.html">
-                                <i class="fa fa-circle-o"></i> Soạn thảo
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i> <span>Tables</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="tables-simple">
-                            <a href="all-tables-simple.html">
-                                <i class="fa fa-circle-o"></i> Hình thức(Đơn giản hóa)
-                            </a>
-                        </li>
-
-                        <li id="tables-data">
-                            <a href="all-tables-data.html">
-                                <i class="fa fa-circle-o"></i> Bảng dữ liệu
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cube"></i> <span>Mẫu-Quản lý đơn hàng</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="order-manage">
-                            <a href="all-order-manage-list.html">
-                                <i class="fa fa-circle-o"></i> Tất Cả
-                            </a>
-                        </li>
-
-                        <li id="order-cancel">
-                            <a href="all-order-cancel-list.html">
-                                <i class="fa fa-circle-o"></i> Hoàn Hàng
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-book"></i> <span>Mẫu-Quản lý du lịch</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="travellog-manage">
-                            <a href="all-travellog-manage-list.html">
-                                <i class="fa fa-circle-o"></i> Danh sách
-                            </a>
-                        </li>
-
-                        <li id="travellog-review">
-                            <a href="all-travellog-review-list.html">
-                                <i class="fa fa-circle-o"></i> Đánh giá
-                            </a>
-                        </li>
-
-                        <li id="travellog-setting">
-                            <a href="all-travellog-setting-edit.html">
-                                <i class="fa fa-circle-o"></i> Cài Đặt
                             </a>
                         </li>
 
@@ -690,126 +484,7 @@
                 </div>
                 <!-- ./col -->
             </div>
-            <!-- /.row -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <i class="fa fa-users"></i>
-                    <h3 class="box-title">Account</h3>
-                </div>
-                <div class="box-body">
-                    <div class="table-box">
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <form action="/home/" method="get">
-                                        <button type="submit" class="btn btn-default" title="Refresh"
-                                                onclick="location.reload()"><i class="fa fa-refresh"></i> Load
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <form action="/home/" method="get">
-                                    <input type="text" class="form-control input-sm" placeholder="Search" name="keyword"
-                                           th:value="${keyword}">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </form>
-                            </div>
-                        </div>
-                        <table id="example" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="">Mã</th>
-                                <th class="">UserName</th>
-                                <th class="">Password</th>
-                                <th class="">CustomerName</th>
-                                <th class="">Department</th>
-                                <th class="text-center">Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="user:${users}">
-                                <td th:text="${user.userId}"></td>
-                                <td th:text="${user.username}"></td>
-                                <td th:text="${user.password}"></td>
-                                <td th:text="${user.customer.customerName}"></td>
-                                <td th:text="${user.department.departmentName}"></td>
-                                <td th:text="${user.status}"></td>
-                                <td class="text-center">
-                                    <button type="button" class="btn bg-olive btn-xs"
-                                            onclick='location.href="all-product-line-edit.html"'>active
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <i class="fa fa-book"></i>
-                    <h3 class="box-title">Employee</h3>
-                </div>
-                <div class="box-body">
-                    <div class="table-box">
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <form action="/home/" method="get">
-                                        <button type="submit" class="btn btn-default" title="Refresh"
-                                                onclick="location.reload()"><i class="fa fa-refresh"></i> Load
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <form action="/home/home1/" method="get">
-                                    <input type="text" class="form-control input-sm" placeholder="Search" name="keyword"
-                                           th:value="${keyword1}">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </form>
-                            </div>
-                        </div>
-                        <table id="dataEmployee" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="">Mã nhân viên</th>
-                                <th class="">Tên nhân viên</th>
-                                <th class="">Email</th>
-                                <th class="">Phone</th>
-                                <th class="">Address</th>
-                                <th class="">Lương</th>
-                                <th class="">Phòng ban</th>
-                                <th class="">Địa chỉ</th>
-                                <th class="text-center">Trạng thái</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="customer : ${customers}">
-                                <td th:text="${customer.customerId}"></td>
-                                <td th:text="${customer.customerName}"></td>
-                                <td th:text="${customer.email}"></td>
-                                <td th:text="${customer.phone}"></td>
-                                <td th:text="${customer.address}"></td>
-                                <td th:text="${customer.abc}"></td>
-                                <td th:text="${customer.xyz}"></td>
-                                <td th:text="${customer.role}"></td>
-                                <td class="text-center">
-                                    <button type="button" class="btn bg-olive btn-xs"
-                                            onclick='location.href="all-travellog-manage-edit.html"'>Đang làm việc
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+
             <div class="box box-success">
                 <div class="box-header with-border">
                     <i class="fa fa-book"></i>
@@ -894,6 +569,21 @@
                     </div>
                 </div>
             </div>
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <i class="fa fa-users"></i>
+                    <h3 class="box-title">Account</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-box">
+                        <table id="example" class="table table-bordered table-striped table-hover dataTable">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </section>
         <div class="modal" id="myModal1">
             <div class="modal-dialog" style="width: 1200px">
@@ -1040,5 +730,33 @@
 <script src="../static/js/bootstrap-datetimepicker.js"></script>
 <script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="../static/js/calendar.js"></script>
+
+<script>
+    axios.get('http://localhost:8080/transaction').then((res) =>{
+        let list = res.data;
+        let str = "";
+        for (let i = 0; i < list.length; i++) {
+            str += `<thead>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th class="text-center">Tên CV</th>
+                        <th class="text-center">Nhiệm vụ</th>
+                        <th class="text-center">Ngày đk</th>
+                        <th class="text-center">Hạn hoàn thành</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-center">${list[i].user.name}</td>
+                        <td class="text-center">${list[i].transactionType.name}</td>
+                        <td class="text-center">${list[i].money}</td>
+                        <td class="text-center">${list[i].date}</td>
+                        <td class="text-center">${list[i].note}</td>
+                    </tr>
+                    </tbody>`
+        }
+        document.getElementById("example").innerHTML = str;
+    })
+</script>
 </body>
 </html>
