@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("users")
 public class UserController {
     @Autowired
@@ -20,7 +21,7 @@ public class UserController {
     List<User> lisUsers(){
         return iUserRepository.findAll();
     }
-    @PostMapping("")
+    @PostMapping("/register")
     public ResponseEntity addUser(@RequestBody User user){
         List<User> foundUser = iUserRepository.findByName(user.getName().trim());
         if(foundUser.size() > 0){
@@ -31,6 +32,16 @@ public class UserController {
             return new ResponseEntity("Add user successfully", HttpStatus.OK);
         }
 
+    }
+    @PostMapping("/login")
+    public ResponseEntity login(@RequestBody User user){
+        List<User> users = iUserRepository.findAllByNameAndPassword(user.getName(), user.getPassword());
+        if(users.size()==1){
+            return new ResponseEntity(users,HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity("User name or password not correct",HttpStatus.NOT_IMPLEMENTED);
+        }
     }
     @PutMapping("/{id}")
     public ResponseEntity<String> update(@RequestBody User user, @PathVariable Long id){
