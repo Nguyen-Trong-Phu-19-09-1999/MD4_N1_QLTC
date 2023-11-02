@@ -424,35 +424,20 @@
                     <form role="form"
                           novalidate="novalidate">
                         <div class="form-group">
-                            <label for="exampleInputName">Tên hành động</label>
-                            <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
-                                   placeholder="Enter Name">
+                            <label for="money">Tiền</label>
+                            <input type="number" class="form-control" id="money">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputUserName">Tiền</label>
-                            <input type="text" class="form-control" id="exampleInputUserName"
-                                   aria-describedby="emailHelp" placeholder="Enter UserName">
+                            <label for="date">Ngày Gửi</label>
+                            <input type="date" class="form-control" id="date">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword">Ngày Gửi</label>
-                            <input type="password" class="form-control" id="exampleInputPassword"
-                                   placeholder="Password" autocomplete="current-password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputStatus">Ghi chú</label>
-                            <input type="text" class="form-control" id="exampleInputStatus" placeholder="Status">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputcustomer">Người tạo</label>
-                            <select class="form-control" id="exampleInputcustomer" >
-                                <option>abc</option>
-                                <option>abc</option>
-                                <option>abc</option>
-                            </select>
+                            <label for="note">Ghi chú</label>
+                            <input type="text" class="form-control" id="note">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button class="btn btn-primary" onclick="addList()">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -607,8 +592,9 @@
                 <tbody style="text-align: center">';
 
             for (let i = 0; i < list.length; i++) {
+                console.log(list[i])
                 str += `<tr>\
-                    <td>${list[i].transactionType.name}</td>\
+                    <td></td>
                     <td>${list[i].money}</td>\
                     <td>${list[i].date}</td>\
                     <td>${list[i].note}</td>\
@@ -631,6 +617,26 @@
                 $("#dataList").dataTable();
             });
         });
+    }
+    showList();
+    const addList = () =>{
+        let data = {
+            transaction_type_id:{
+                id: 2,
+            },
+            date:document.getElementById("date").value,
+            money:document.getElementById("money").value,
+            note:document.getElementById("note").value,
+            user:{
+                id:2,
+            }
+        }
+
+        axios.post("http://localhost:8080/transaction" ,data).then((res) =>{
+
+        }).catch((e)=>{
+            console.log(e.message)
+        })
     }
 </script>
 </body>
