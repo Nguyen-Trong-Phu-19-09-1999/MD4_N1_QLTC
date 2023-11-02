@@ -3,11 +3,12 @@ function showFormRegister(){
 
     document.getElementById('body').innerHTML = `
     <table>
+    <h2>Register</h2>
         <tr>
         <td><input type="text" id="name" placeholder=" Name: "></td>
         </tr>
         <tr>
-        <td><input type="text" id="password" placeholder="password : "></td>                
+        <td><input type="password" id="password" placeholder="password : "></td>                
         </tr>
         <tr>
         <td><button onclick="register()">Register</button></</td>
