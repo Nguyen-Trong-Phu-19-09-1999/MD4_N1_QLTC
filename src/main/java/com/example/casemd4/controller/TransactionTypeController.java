@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/tracsactiontype")
+@CrossOrigin("*")
+@RequestMapping("/api/transactionType")
 public class TransactionTypeController {
 
     @Autowired
@@ -52,3 +53,4 @@ public class TransactionTypeController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }}
+
