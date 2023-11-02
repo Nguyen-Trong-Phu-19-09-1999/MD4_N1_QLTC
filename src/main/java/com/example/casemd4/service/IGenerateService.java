@@ -1,5 +1,7 @@
 package com.example.casemd4.service;
 
+import com.example.casemd4.model.TransactionType;
+
 import java.util.Optional;
 
 public interface IGenerateService<T> {
@@ -7,7 +9,7 @@ public interface IGenerateService<T> {
 
     Optional<T> findById(Long id);
 
-    void save(T t);
+    public void save(T t);
 
     void delete(Long id);
 }
