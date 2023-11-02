@@ -3,11 +3,11 @@ package com.example.casemd4.service;
 import java.util.Optional;
 
 public interface IGenerateService<T> {
-    public Iterable<T> findAll();
+    Iterable<T> findAll();
 
-    public Optional<T> findById(Long id);
+    Optional<T> findById(Long id);
 
     void save(T t);
 
-    public void delete(Long id);
+    void delete(Long id);
 }

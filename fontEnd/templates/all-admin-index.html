@@ -32,8 +32,8 @@
     <link rel="stylesheet" href="../static/css/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet" href="../static/css/slider.css">
     <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="../static/css/calendar.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+    <link rel="stylesheet" href="../static/css/jquery.dataTables.css">
+    <script src="../static/js/jquery.dataTables.js"></script>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -324,16 +324,16 @@
                     </a>
                     <ul class="treeview-menu">
                         <li id="admin-datalist" class="treeview">
-                            <a href="#" style="font-size: 15px; margin-left: 25px">
+                            <a href="#">
                                 <i class="fa fa-folder"></i> <span>Data</span>
                                 <span class="pull-right-container">
                                   <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu" style="padding-left: 15px">
+                            <ul class="treeview-menu">
                                 <li><a href="/home/data"><i class="fa fa-user-circle"></i> Prodcut</a></li>
                                 <li><a href=""><i class="fa fa-shopping-cart"></i> Order</a></li>
-                                <li><a href=""><i class="fa fa-calendar"></i> Calendar &amp </i>Notify</a></li>
+                                <li><a href=""><i class="fa fa-calendar"></i> Calendar &amp Notifications</a></li>
                                 <li><a href=""><i class="fa fa-briefcase"></i> Job</a></li>
                                 <li><a href=""><i class="fa fa-building"></i> Department</a></li>
                                 <li><a href=""><i class="fa fa-percent"></i> Employee</a></li>
@@ -372,6 +372,29 @@
                         <li id="charts-inline">
                             <a href="all-charts-inline.html">
                                 <i class="fa fa-circle-o"></i> Inline Charts
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cube"></i> <span>Mẫu-Quản lý đơn hàng</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="order-manage">
+                            <a href="all-order-manage-list.html">
+                                <i class="fa fa-circle-o"></i> Tất Cả
+                            </a>
+                        </li>
+
+                        <li id="order-cancel">
+                            <a href="all-order-cancel-list.html">
+                                <i class="fa fa-circle-o"></i> Hoàn Hàng
                             </a>
                         </li>
 
@@ -484,92 +507,7 @@
                 </div>
                 <!-- ./col -->
             </div>
-
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <i class="fa fa-book"></i>
-                    <h3 class="box-title">Calendar</h3>
-                </div>
-                <div class="box-body">
-                    <div class="table-box">
-                        <div class="container">
-                            <div class="left">
-                                <div class="calendar">
-                                    <div class="month">
-                                        <i class="fa fa-angle-left prev"></i>
-                                        <div class="date">december 2015</div>
-                                        <i class="fa fa-angle-right next"></i>
-                                    </div>
-                                    <div class="weekdays">
-                                        <div>Sun</div>
-                                        <div>Mon</div>
-                                        <div>Tue</div>
-                                        <div>Wed</div>
-                                        <div>Thu</div>
-                                        <div>Fri</div>
-                                        <div>Sat</div>
-                                    </div>
-                                    <div class="days"></div>
-                                    <div class="goto-today">
-                                        <div class="goto">
-                                            <label>
-                                                <input type="text" placeholder="mm/yyyy" class="date-input"/>
-                                            </label>
-                                            <button class="goto-btn">Go</button>
-                                        </div>
-                                        <button class="today-btn">Today</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <div class="today-date">
-                                    <div class="event-day">wed</div>
-                                    <div class="event-date">12th december 2022</div>
-                                </div>
-                                <div class="events"></div>
-                                <div class="add-event-wrapper">
-                                    <div class="add-event-header">
-                                        <div class="title">Add Event</div>
-                                        <i class="fa fa-times close"></i>
-                                    </div>
-                                    <div class="add-event-body">
-                                        <div class="add-event-input">
-                                            <label>
-                                                <input type="text" placeholder="Event Name" class="event-name"/>
-                                            </label>
-                                        </div>
-                                        <div class="add-event-input">
-                                            <label>
-                                                <input
-                                                        type="text"
-                                                        placeholder="Event Time From"
-                                                        class="event-time-from"
-                                                />
-                                            </label>
-                                        </div>
-                                        <div class="add-event-input">
-                                            <label>
-                                                <input
-                                                        type="text"
-                                                        placeholder="Event Time To"
-                                                        class="event-time-to"
-                                                />
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="add-event-footer">
-                                        <button class="add-event-btn">Add Event</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="add-event">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <!-- /.row -->
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="fa fa-users"></i>
@@ -583,95 +521,7 @@
                     </div>
                 </div>
             </div>
-
         </section>
-        <div class="modal" id="myModal1">
-            <div class="modal-dialog" style="width: 1200px">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel1">Hóa đơn mới nhất</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table id="example1" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Tên Hóa Đơn</th>
-                                <th class="text-center">Người gửi</th>
-                                <th class="text-center">Địa chỉ gửi</th>
-                                <th class="text-center">Người nhận</th>
-                                <th class="text-center">Địa chỉ nhận</th>
-                                <th class="text-center">Sản phẩm</th>
-                                <th class="text-center">Giá</th>
-                                <th class="text-center">Ngày tạo hóa đơn</th>
-                                <th class="text-center">Thuế</th>
-                                <th class="text-center">AC</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="order:${orders}">
-                                <td class="text-center" th:text="${order.getOrderId()}"></td>
-                                <td class="text-center" th:text="${order.getNameOrder()}"></td>
-                                <td class="text-center" th:text="${order.getNameGui()}"></td>
-                                <td class="text-center" th:text="${order.getAddressForm()}"></td>
-                                <td class="text-center" th:text="${order.getNameGui()}"></td>
-                                <td class="text-center" th:text="${order.getAddressTo()}"></td>
-                                <td class="text-center" th:text="${order.product.getNameProduct()}"></td>
-                                <td class="text-center" th:text="${order.getPrice()}"></td>
-                                <td class="text-center" th:text="${order.getStartDay()}"></td>
-                                <td class="text-center" th:text="${order.getTax()}"></td>
-                                <td>
-                                    <button type="button" class="btn bg-olive btn-xs"
-                                            onclick='location.href="all-product-line-edit.html"'>Xem
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal" id="myModal2">
-            <div class="modal-dialog" style="width: 1200px">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel2">Hóa đơn mới nhất</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table id="example2" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Tên CV</th>
-                                <th class="text-center">Nhiệm vụ</th>
-                                <th class="text-center">Ngày đk</th>
-                                <th class="text-center">Hạn hoàn thành</th>
-                                <th class="text-center">Vị Trí</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="job:${jobs}">
-                                <td class="text-center" th:text="${job.getId()}"></td>
-                                <td class="text-center" th:text="${job.getName()}"></td>
-                                <td class="text-center" th:text="${job.getTask()}"></td>
-                                <td class="text-center" th:text="${job.getStartsTime()}"></td>
-                                <td class="text-center" th:text="${job.getEndTime()}"></td>
-                                <td class="text-center" th:text="${job.department.getDepartmentName()}"></td>
-                                <td>
-                                    <button type="button" class="btn bg-olive btn-xs"
-                                            onclick='location.href="all-product-line-edit.html"'>Xem
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- main-footer -->
@@ -729,34 +579,5 @@
 <script src="../static/js/bootstrap-slider.js"></script>
 <script src="../static/js/bootstrap-datetimepicker.js"></script>
 <script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
-<script src="../static/js/calendar.js"></script>
-
-<script>
-    axios.get('http://localhost:8080/transaction').then((res) =>{
-        let list = res.data;
-        let str = "";
-        for (let i = 0; i < list.length; i++) {
-            str += `<thead>
-                    <tr>
-                        <th class="text-center"></th>
-                        <th class="text-center">Tên CV</th>
-                        <th class="text-center">Nhiệm vụ</th>
-                        <th class="text-center">Ngày đk</th>
-                        <th class="text-center">Hạn hoàn thành</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="text-center">${list[i].user.name}</td>
-                        <td class="text-center">${list[i].transactionType.name}</td>
-                        <td class="text-center">${list[i].money}</td>
-                        <td class="text-center">${list[i].date}</td>
-                        <td class="text-center">${list[i].note}</td>
-                    </tr>
-                    </tbody>`
-        }
-        document.getElementById("example").innerHTML = str;
-    })
-</script>
 </body>
 </html>
