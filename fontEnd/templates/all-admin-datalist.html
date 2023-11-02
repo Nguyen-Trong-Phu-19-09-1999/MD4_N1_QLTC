@@ -423,8 +423,8 @@
                 <div class="modal-body">
                     <form role="form" novalidate="novalidate">
                         <div class="form-group">
-                            <label for="money">Tiền</label>
-                            <select name="" id="transactionType_id"></select>
+                            <label for="transactionType_id">Kiểu</label>
+                            <select name="transactionType_id" id="transactionType_id"></select>
                         </div>
                         <div class="form-group">
                             <label for="money">Tiền</label>
@@ -596,7 +596,7 @@
 
             for (let i = 0; i < list.length; i++) {
                 str += `<tr>\
-                    <td>${list[i].transactionType.id}</td>\
+                    <td>${list[i].transactionType.name}</td>\
                     <td>${list[i].money}</td>\
                     <td>${list[i].date}</td>\
                     <td>${list[i].note}</td>\
@@ -640,6 +640,14 @@
             console.log(e.message)
         })
     }
+    axios.get("http://localhost:8080/api/transactionType").then((res)=>{
+        let data = res.data
+        let content;
+        for (let i = 0; i < data.length ; i++) {
+            content += `<option value=${data[i].id}>${data[i].name}</option>`
+        }
+        document.getElementById("transactionType_id").innerHTML = content;
+    })
 </script>
 </body>
 </html>
