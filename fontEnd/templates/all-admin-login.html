@@ -33,7 +33,10 @@
     <link rel="stylesheet" href="../static/css/slider.css">
     <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
     <link rel="stylesheet" href="../static/css/calendar.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
     <script src="../TA/login.js"></script>
+    <script src="../TA/localStorage.js"></script>
+    <script src="../TA/register.js"></script>
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
@@ -43,13 +46,13 @@
         <div class="login-box-body">
             <p class="login-box-msg">Fill in your account to log in</p>
 
-            <form action="/" method="get">
+            <form>
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Tài khoản">
+                    <input type="text" class="form-control" placeholder="Email" id="name">
                     <span class="fa fa-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="password">
+                    <input type="password" class="form-control" placeholder="password" id="psw">
                     <span class="fa  fa-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
@@ -59,9 +62,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">
-                            <div onload="login()">Login</div>
-                        </button>
+                        <button type="button" class="btn btn-primary btn-block btn-flat" onclick="login()">Login</button>
                     </div>
                 </div>
             </form>
