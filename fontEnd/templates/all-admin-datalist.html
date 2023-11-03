@@ -271,19 +271,17 @@
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
+                    <li class="dropdown user user-menu" id="user-main">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../static/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Hữu Sỹ</span>
+                            <span class="hidden-xs" id="usernamePlaceholder"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="../static/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <p id="user_name_role">
 
-                                <p>
-                                    Hữu Sỹ - Quản trị viên
-                                    <small>Đăng nhập lần cuối: 11:20AM</small>
                                 </p>
                             </li>
                             <li class="user-footer">
@@ -499,6 +497,9 @@
 <script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
 <script>
+    let username = localStorage.getItem("name");
+    document.getElementById("usernamePlaceholder").innerText = username;
+    document.getElementById("user_name_role").innerHTML = `${username} - Quản trị viên<small>Đăng nhập lần cuối: 11:20AM</small>`
     $(document).ready(function () {
         $(".select2").select2();
         $(".textarea").wysihtml5({
@@ -676,6 +677,7 @@
         }
         document.getElementById("user_id").innerHTML = content1;
     })
+
 </script>
 </body>
 </html>
