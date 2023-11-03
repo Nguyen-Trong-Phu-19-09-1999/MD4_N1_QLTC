@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../static/css/slider.css">
     <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
     <link rel="stylesheet" href="../static/css/calendar.css">
+    <script src="../TA/login.js"></script>
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
@@ -44,7 +45,7 @@
 
             <form action="/" method="get">
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="text" class="form-control" placeholder="Tài khoản">
                     <span class="fa fa-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -58,7 +59,9 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">
+                            <div onload="login()">Login</div>
+                        </button>
                     </div>
                 </div>
             </form>
