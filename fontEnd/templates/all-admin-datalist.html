@@ -423,8 +423,8 @@
                 <div class="modal-body">
                     <form role="form" novalidate="novalidate">
                         <div class="form-group">
-                            <label for="money">Tiền</label>
-                            <select name="" id="transactionType_id"></select>
+                            <label for="transactionType_id">Kiểu</label>
+                            <select name="transactionType_id" id="transactionType_id"></select>
                         </div>
                         <div class="form-group">
                             <label for="money">Tiền</label>
@@ -437,6 +437,10 @@
                         <div class="form-group">
                             <label for="note">Ghi chú</label>
                             <input type="text" class="form-control" id="note">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_id">Người tạo</label>
+                            <select name="user_id" id="user_id"></select>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -596,7 +600,7 @@
 
             for (let i = 0; i < list.length; i++) {
                 str += `<tr>\
-                    <td>${list[i].transactionType.id}</td>\
+                    <td>${list[i].transactionType.name}</td>\
                     <td>${list[i].money}</td>\
                     <td>${list[i].date}</td>\
                     <td>${list[i].note}</td>\
@@ -621,25 +625,43 @@
         });
     }
     showList();
-    const addList = () =>{
+    function addList(){
         let data = {
             transactionType:{
-                id: transactionType_id,
+                id: document.getElementById("transactionType_id").value,
             },
             date:document.getElementById("date").value,
             money:document.getElementById("money").value,
             note:document.getElementById("note").value,
             user:{
-                id:2,
+                id:document.getElementById("user_id").value,
             }
         }
 
         axios.post("http://localhost:8080/transaction" ,data).then((res) =>{
-
+            alert("thanh cong")
         }).catch((e)=>{
+            alert("loi roi")
             console.log(e.message)
         })
     }
+    axios.get("http://localhost:8080/api/transactionType").then((res)=>{
+        let data = res.data
+        let content;
+        for (let i = 0; i < data.length ; i++) {
+            content += `<option value=${data[i].id}>${data[i].name}</option>`
+        }
+        document.getElementById("transactionType_id").innerHTML = content;
+    })
+    axios.get("http://localhost:8080/users").then((res)=>{
+        let data1 = res.data
+        let content1;
+        for (let i = 0; i < data1.length ; i++) {
+            content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
+        }
+        document.getElementById("user_id").innerHTML = content1;
+    })
+
 </script>
 </body>
 </html>

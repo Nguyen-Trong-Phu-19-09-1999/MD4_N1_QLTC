@@ -16,6 +16,7 @@ function showFormRegister(){
     </table>`
 }
 function register(){
+
     let data =
         {
             name: document.getElementById("name").value,
