@@ -6,12 +6,10 @@ function login(){
         }
     axios.post("http://localhost:8080/users/login", data).then(() => {
         localStorage.setItem('name',document.getElementById("name").value)
-
         alert("Login success")
+        window.location.href = "../templates/all-admin-datalist.html";
         loadUser();
-
     });
-
 }
 function showFormLogin(){
     document.getElementById('body').innerHTML = `
