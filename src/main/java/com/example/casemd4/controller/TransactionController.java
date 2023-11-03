@@ -27,6 +27,12 @@ public class TransactionController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id){
+        Optional<Transactions> find = transactionService.findById(id);
+        return new ResponseEntity<>(find,HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Iterable<Transactions>> update(@RequestBody Transactions transactions,@PathVariable Long id){
         Optional<Transactions> transactions1 = transactionService.findById(id);

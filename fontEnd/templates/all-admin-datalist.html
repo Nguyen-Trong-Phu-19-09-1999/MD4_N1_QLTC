@@ -38,6 +38,9 @@
         .password-field::after {
             content: '*';
         }
+        button.btn {
+            margin-right: 5px;
+        }
     </style>
     <link rel="stylesheet" href="../static/css/jquery.dataTables.css">
 </head>
@@ -491,6 +494,7 @@
 <script src="../static/js/bootstrap-datetimepicker.js"></script>
 <script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+
 <script>
     let username = localStorage.getItem("name");
     document.getElementById("usernamePlaceholder").innerText = username;
@@ -615,6 +619,8 @@
             "                            <button type=button id=delete-btn class=btn btn-default onclick=\"deleteList()\" title=Delete>\n" +
             "                                <i class=fa fa-trash-o></i> Delete\n" +
             "                            </button>\n" +
+            "                            <button type=button class=btn btn-default onclick=\"editList()\" data-bs-toggle=modal data-bs-target=#myModal2\n" +
+            "                                    title=Edit><i class=fa fa-file-o></i> Edit\n" +
             "                        </div>\n" +
             "                    </div>\n" +
             "                </div>\n" +
@@ -648,7 +654,6 @@
                         <th>Ngày Gửi</th>\
                         <th>Ghi chú</th>\
                         <th>Người tạo</th>\
-                        <th>Thao Tác</th>\
                     </tr>\
                 </thead>\
                 <tbody style="text-align: center">';
@@ -661,11 +666,6 @@
                     <td>${list[i].date}</td>\
                     <td>${list[i].note}</td>\
                     <td>${list[i].user.name}</td>\
-                    <td>\
-                        <a>\
-                            <button onclick="edit(${list[i].id})">Sửa</button>
-                        </a>\
-                    </td>\
                 </tr>`;
             }
 
@@ -697,6 +697,99 @@
         })
     }
     showList();
+    function editList(){
+        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+        let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+        if (selectId.length === 0){
+            alert("Vui lòng chọn phần tử muốn xóa")
+            return;
+        }
+        axios.get(`http://localhost:8080/transaction/${selectId}`).then((res) =>{
+            let data = res.data;
+
+            document.getElementById("transactionType_id").value = data.transactionType.id;
+            document.getElementById("money").value = data.money;
+            document.getElementById("date").value = data.date;
+            document.getElementById("note").value = data.note;
+            document.getElementById("user_id").value = data.user.id;
+
+            let ax =``
+            ax += `<div class="modal" id="myModal2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"
+                                style="align-items: center;margin: auto;font-size: 13px">Thêm Mới</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="transactionType_id">Kiểu</label>
+                                    <select name="transactionType_id" id="transactionType_id_edit"><option value="${data.transactionType.id}">${data.transactionType.name}</option></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="money">Tiền</label>
+                                    <input type="number" class="form-control" id="money_edit" value="${data.money}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Ngày Gửi</label>
+                                    <input type="date" class="form-control" id="date_edit" value="${data.date}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="note">Ghi chú</label>
+                                    <input type="text" class="form-control" id="note_edit" value="${data.note}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_id">Người tạo</label>
+                                    <select name="user_id" id="user_id_edit"><option value="${data.user.id}">${data.user.name}</option></select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button class="btn btn-primary" onclick="updateList('${selectId}')">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+            document.body.insertAdjacentHTML('beforeend', ax);
+            $('#myModal2').modal('show');
+        }).catch((e) =>{
+            console.log(selectId)
+            console.error(e)
+        })
+    }
+    function updateList(selectId) {
+        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+        selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+        let updatedData = {
+            transactionType: {
+                id: document.getElementById("transactionType_id_edit").value,
+            },
+            money: document.getElementById("money_edit").value,
+            date: document.getElementById("date_edit").value,
+            note: document.getElementById("note_edit").value,
+            user: {
+                id: 1,
+            },
+        };
+
+        axios.put(`http://localhost:8080/transaction/${selectId}`, updatedData)
+            .then((res) => {
+                alert("abc")
+                // Handle success if needed
+                console.log(res.data);
+
+                // Close the modal after successful update
+                $('#myModal2').modal('hide');
+
+                // Refresh the list after the update
+                // showList();
+            })
+            .catch((e) => {
+                console.error(e);
+            });
+    }
     function deleteList(){
         let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
         let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);

@@ -32,4 +32,5 @@ public class TransactionService implements ITransactionService<Transactions> {
     public void delete(Long id) {
         iTransactionRepository.deleteById(id);
     }
+
 }
