@@ -7,8 +7,9 @@ function showFormUpdateTran(id) {
         <input type="text" id="name" value="${data.name}" >
         <button onclick="updateTran()">Update</button>
         `
+        document.getElementById('body').innerHTML = str;
     })
-    document.getElementById('body').innerHTML = str;
+
 }
 function updateTran() {
     let data = {
