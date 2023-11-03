@@ -1,6 +1,7 @@
 package com.example.casemd4.controller;
 
 import com.example.casemd4.model.TransactionType;
+import com.example.casemd4.model.User;
 import com.example.casemd4.service.Impl.TransactionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,11 +25,13 @@ public class TransactionTypeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<TransactionType> findTransactionTypeById(@PathVariable Long id){
-        return new ResponseEntity<>(transactionTypeService.findById(id).get(),HttpStatus.OK);
+        Optional<TransactionType> foundTran = transactionTypeService.findById(id);
+        return new ResponseEntity(foundTran,HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<TransactionType> saveTransactionType(@RequestBody TransactionType transactionType){
+
         transactionTypeService.save(transactionType);
         return new ResponseEntity<>(HttpStatus.OK);
     }
