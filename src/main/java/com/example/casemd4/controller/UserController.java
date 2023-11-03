@@ -2,7 +2,6 @@ package com.example.casemd4.controller;
 
 import com.example.casemd4.model.User;
 import com.example.casemd4.repository.IUserRepository;
-import com.example.casemd4.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     IUserRepository iUserRepository;

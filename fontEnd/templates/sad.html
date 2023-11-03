@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <title>Title</title>
+</head>
+<body>
+<section class=content-header>
+    <h1>
+        Data Transactions
+        <small>List</small>
+    </h1>
+    <ol class=breadcrumb>
+        <li><a href=#><i class=fa fa-dashboard></i> Home</a></li>
+        <li><a href=#>Trang chủ</a></li>
+        <li class=active>Data List</li>
+    </ol>
+</section>
+<section class=content>
+    <div class=box box-primary>
+        <div class=box-header with-border>
+            <h3 class=box-title>Transactions</h3>
+        </div>
+        <div class=box-body>
+            <div class=table-box>
+                <div class=pull-left>
+                    <div class=form-group form-inline>
+                        <div class=btn-group>
+                            <button type=button class=btn btn-default data-bs-toggle=modal data-bs-target=#myModal1
+                                    title=New><i class=fa fa-file-o></i> New
+                            </button>
+                            <button type=button id=delete-btn class=btn btn-default onclick="deleteList()" title=Delete>
+                                <i class=fa fa-trash-o></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <table id=dataList class=table table-bordered table-striped table-hover dataTable>
+                </table>
+            </div>
+        </div>
+        <div class=box-footer>
+            <div class=pull-left>
+                <div class=form-group form-inline>
+                    Total
+                    <select class=form-control>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select> Product
+                </div>
+            </div>
+            <div class=box-tools pull-right>
+                <ul class=pagination>
+                    <li>
+                        <a href=# aria-label=Previous>Front page</a>
+                    </li>
+                    <li><a href=#>Previous page</a></li>
+                    <li><a href=#>1</a></li>
+                    <li><a href=#>2</a></li>
+                    <li><a href=#>3</a></li>
+                    <li><a href=#>Next page</a></li>
+                    <li>
+                        <a href=# aria-label=Next>Last page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

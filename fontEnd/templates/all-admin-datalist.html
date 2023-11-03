@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Dev Internal</title>
@@ -11,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/ionicons.min.css">
     <link rel="stylesheet" href="../static/css/morris.css">
@@ -41,6 +42,9 @@
         }
     </style>
     <link rel="stylesheet" href="../static/css/jquery.dataTables.css">
+    <script src="../TA/localStorage.js"></script>
+    <script src="../TA/login.js"></script>
+    <script src="../TA/register.js"></script>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -275,7 +279,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../static/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Hữu Sỹ</span>
+                            <span class="hidden-xs" id="UserName"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -292,7 +296,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Thay đổi mật khẩu</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+                                    <a href="all-admin-login.html" class="btn btn-default btn-flat">Đăng xuất</a>
                                 </div>
                             </li>
                         </ul>
@@ -331,67 +335,22 @@
                     </span>
                     </a>
                     <ul class="treeview-menu">
-
-                        <li id="admin-login">
-                            <a href="login">
-                                <i class="fa fa-circle-o"></i> Login
+                        <li id="admin-datalist" class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Data</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#" onclick="showList()"><i class="fa fa-transgender"></i> Transaction</a></li>
+                            </ul>
                         </li>
-
-                        <li id="admin-register">
-                            <a href="register">
-                                <i class="fa fa-circle-o"></i> Register
-                            </a>
-                        </li>
-
-                        <li id="admin-404">
-                            <a href="all-admin-404.html">
-                                <i class="fa fa-circle-o"></i> 404 Error
-                            </a>
-                        </li>
-
-                        <li id="admin-500">
-                            <a href="all-admin-500.html">
-                                <i class="fa fa-circle-o"></i> 500 Error
-                            </a>
-                        </li>
-
-                        <li id="admin-blank">
-                            <a href="all-admin-blank.html">
-                                <i class="fa fa-circle-o"></i> Rỗng
-                            </a>
-                        </li>
-
-                        <li id="admin-datalist">
-                            <a href="all-admin-datalist.html">
-                                <i class="fa fa-circle-o"></i> Data
-                            </a>
-                        </li>
-
-                        <li id="admin-dataform">
-                            <a href="all-admin-dataform.html">
-                                <i class="fa fa-circle-o"></i> From
-                            </a>
-                        </li>
-
                         <li id="admin-profile">
                             <a href="all-admin-profile.html">
                                 <i class="fa fa-circle-o"></i> Profile
                             </a>
                         </li>
-
-                        <li id="admin-invoice">
-                            <a href="all-admin-invoice.html">
-                                <i class="fa fa-circle-o"></i> Invoice
-                            </a>
-                        </li>
-
-                        <li id="admin-invoice-print">
-                            <a href="all-admin-invoice-print.html">
-                                <i class="fa fa-circle-o"></i> Invoice Print
-                            </a>
-                        </li>
-
                     </ul>
                 </li>
                 <li class="treeview">
@@ -431,164 +390,7 @@
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-laptop"></i> <span>UI</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="elements-general">
-                            <a href="all-elements-general.html">
-                                <i class="fa fa-circle-o"></i> General
-                            </a>
-                        </li>
-
-                        <li id="elements-icons">
-                            <a href="all-elements-icons.html">
-                                <i class="fa fa-circle-o"></i> Icons
-                            </a>
-                        </li>
-
-                        <li id="elements-buttons">
-                            <a href="all-elements-buttons.html">
-                                <i class="fa fa-circle-o"></i> Buttons
-                            </a>
-                        </li>
-
-                        <li id="elements-sliders">
-                            <a href="all-elements-sliders.html">
-                                <i class="fa fa-circle-o"></i> Sliders
-                            </a>
-                        </li>
-
-                        <li id="elements-timeline">
-                            <a href="all-elements-timeline.html">
-                                <i class="fa fa-circle-o"></i> Timeline
-                            </a>
-                        </li>
-
-                        <li id="elements-modals">
-                            <a href="all-elements-modals.html">
-                                <i class="fa fa-circle-o"></i> Modals
-                            </a>
-                        </li>
-
-                        <li id="elements-widgets">
-                            <a href="all-elements-widgets.html">
-                                <i class="fa fa-circle-o"></i> widgets
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-edit"></i> <span>Forms</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="form-general">
-                            <a href="all-form-general.html">
-                                <i class="fa fa-circle-o"></i> Cơ bản
-                            </a>
-                        </li>
-
-                        <li id="form-advanced">
-                            <a href="all-form-advanced.html">
-                                <i class="fa fa-circle-o"></i> Nâng cao
-                            </a>
-                        </li>
-
-                        <li id="form-editors">
-                            <a href="all-form-editors.html">
-                                <i class="fa fa-circle-o"></i> Soạn thảo
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i> <span>Tables</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="tables-simple">
-                            <a href="all-tables-simple.html">
-                                <i class="fa fa-circle-o"></i> Hình thức(Đơn giản hóa)
-                            </a>
-                        </li>
-
-                        <li id="tables-data">
-                            <a href="all-tables-data.html">
-                                <i class="fa fa-circle-o"></i> Bảng dữ liệu
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cube"></i> <span>Mẫu-Quản lý đơn hàng</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="order-manage">
-                            <a href="all-order-manage-list.html">
-                                <i class="fa fa-circle-o"></i> Tất Cả
-                            </a>
-                        </li>
-
-                        <li id="order-cancel">
-                            <a href="all-order-cancel-list.html">
-                                <i class="fa fa-circle-o"></i> Hoàn Hàng
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-book"></i> <span>Mẫu-Quản lý du lịch</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="travellog-manage">
-                            <a href="all-travellog-manage-list.html">
-                                <i class="fa fa-circle-o"></i> Danh sách
-                            </a>
-                        </li>
-
-                        <li id="travellog-review">
-                            <a href="all-travellog-review-list.html">
-                                <i class="fa fa-circle-o"></i> Đánh giá
-                            </a>
-                        </li>
-
-                        <li id="travellog-setting">
-                            <a href="all-travellog-setting-edit.html">
-                                <i class="fa fa-circle-o"></i> Cài Đặt
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cogs"></i> <span>Mẫu-Quản trị hệ thống</span>
+                        <i class="fa fa-cogs"></i> <span>Quản trị hệ thống</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -607,155 +409,16 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-    <div class="content-wrapper">
-        <section class="content-header">
-            <h1>
-                Data Management
-                <small>Product</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Trang chủ</a></li>
-                <li class="active">Data List</li>
-            </ol>
-        </section>
-        <section class="content">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Product</h3>
-                </div>
-                <div class="box-body">
-                    <div class="table-box">
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" data-bs-toggle="modal"
-                                            data-bs-target="#myModal" title="New"><i class="fa fa-file-o"></i> New
-                                    </button>
-                                    <button type="submit" id="delete-btn" class="btn btn-default" title="Delete">
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    </button>
-                                    <button type="submit" class="btn btn-default" title="Refresh"
-                                            onclick="location.reload()"><i
-                                            class="fa fa-refresh"></i> Load
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>UserName</th>
-                                <th>Password</th>
-                                <th>CustomerName</th>
-                                <th>DepartmentName</th>
-                                <th>Status</th>
-                                <th>AC</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="user:${users}">
-                                <td th:text="${user.userId}"></td>
-                                <td th:text="${user.username}"></td>
-                                <td><span class="password-placeholder">********</span>
-                                    <span class="password-text" style="display:none"
-                                          th:text="${user.password}"></span>
-                                </td>
-                                <td th:text="${user.customer.customerName}"></td>
-                                <td th:text="${user.department.departmentName}"></td>
-                                <td th:text="${user.status}"></td>
-                                <td class="text-center">
-                                    <a th:href="@{/home/data/delete/{id}(id=${user.getUserId()})}" type="submit"
-                                       class="btn bg-olive btn-xs edit">Delete</a>
-                                    <a th:href="@{/home/update/{id}(id=${user.userId})}" data-bs-toggle="modal" data-bs-target="#myModal1" type="button"
-                                       class="btn bg-olive btn-xs">Edit</a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="box-footer">
-                    <div class="pull-left">
-                        <div class="form-group form-inline">
-                            Total
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select> Product
-                        </div>
-                    </div>
-
-                    <div class="box-tools pull-right">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">Front page</a>
-                            </li>
-                            <li><a href="#">Previous page</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next page</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">Last page</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="content-wrapper" id="content">
     </div>
-    <div class="modal" id="myModal1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel1">Edit User</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form for editing user details -->
-                    <form th:action="@{/home/update}" method="post" th:object="${user}">
-                        <input type="hidden" th:field="*{userId}" />
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" th:field="*{username}" th:text="${user.username}" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" th:field="*{password}" th:text="${user.password}"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Status</label>
-                            <input type="text" class="form-control" id="status" placeholder="Status"
-                                   th:field="*{status}" th:value="${user.status}" th:text="${user.status}">
-                        </div>
-                        <div class="form-group">
-                            <label for="customer">Customer</label>
-                            <select class="form-control" id="customer" th:field="*{customer}">
-                                <option th:each="customer : ${customers}" th:value="${customer.customerId}"
-                                        th:text="${customer.customerName}"></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="department">Department</label>
-                            <select class="form-control" id="department" th:field="*{department}">
-                                <option th:each="department : ${department}" th:value="${department.departmentId}"
-                                        th:text="${department.departmentName}"></option>
-                            </select>
-                        </div>
-                        <!-- Add other user fields here -->
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </form>
-                </div>
-            </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.0.1
         </div>
-    </div>
-    <div class="modal" id="myModal">
+        <strong>Copyright &copy 2023 - 2024 <a href="https://www.facebook.com">Trang chủ</a>.</strong> All rights
+        reserved.
+    </footer>
+    <div class="modal" id="myModal1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -763,58 +426,36 @@
                         style="align-items: center;margin: auto;font-size: 13px">Thêm Mới</h5>
                 </div>
                 <div class="modal-body">
-                    <form role="form" th:action="@{/home/save}" th:method="post" th:object="${user}"
-                          novalidate="novalidate">
+                    <form role="form" novalidate="novalidate">
                         <div class="form-group">
-                            <label for="exampleInputName">Họ Tên</label>
-                            <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
-                                   placeholder="Enter Name" th:field="*{username}" th:value="${user.userId}">
+                            <label for="transactionType_id">Kiểu</label>
+                            <select name="transactionType_id" id="transactionType_id"></select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputUserName">UserName</label>
-                            <input type="text" class="form-control" id="exampleInputUserName"
-                                   aria-describedby="emailHelp" placeholder="Enter UserName" th:field="*{username}" th:value="${user.username}">
+                            <label for="money">Tiền</label>
+                            <input type="number" class="form-control" id="money">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword"
-                                   placeholder="Password" autocomplete="current-password" th:field="*{password}" th:value="${user.password}">
+                            <label for="date">Ngày Gửi</label>
+                            <input type="date" class="form-control" id="date">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputStatus">Status</label>
-                            <input type="text" class="form-control" id="exampleInputStatus" placeholder="Status"
-                                   th:field="*{status}" th:value="${user.status}">
+                            <label for="note">Ghi chú</label>
+                            <input type="text" class="form-control" id="note">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputcustomer">Customer</label>
-                            <select class="form-control" id="exampleInputcustomer" th:field="*{customer}">
-                                <option th:each="customer : ${customers}" th:value="${customer.customerId}"
-                                        th:text="${customer.customerName}"></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputdepartment">Department</label>
-                            <select class="form-control" id="exampleInputdepartment" th:field="*{department}">
-                                <option th:each="department : ${department}" th:value="${department.departmentId}"
-                                        th:text="${department.departmentName}"></option>
-                            </select>
+                            <label for="user_id">Người tạo</label>
+                            <select name="user_id" id="user_id"></select>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button class="btn btn-primary" onclick="addList()">Save changes</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 0.0.1
-        </div>
-        <strong>Copyright &copy 2023 - 2024 <a href="http://www.facebook.com">Trang chủ</a>.</strong> All rights
-        reserved.
-    </footer>
 </div>
 
 
@@ -861,6 +502,7 @@
 <script src="../static/js/bootstrap-slider.js"></script>
 <script src="../static/js/bootstrap-datetimepicker.js"></script>
 <script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".select2").select2();
@@ -875,42 +517,172 @@
             liObj.parent().parent().addClass("active");
             liObj.addClass("active");
         }
-    };
-    $(document).ready(function () {
-        $("#dataList").dataTable();
-    });
+    }
+    function showList() {
+        let sst = "";
+        sst += "<section class=content-header>\n" +
+            "    <h1>\n" +
+            "        Data Transactions\n" +
+            "        <small>List</small>\n" +
+            "    </h1>\n" +
+            "    <ol class=breadcrumb>\n" +
+            "        <li><a href=#><i class=fa fa-dashboard></i> Home</a></li>\n" +
+            "        <li><a href=#>Trang chủ</a></li>\n" +
+            "        <li class=active>Data List</li>\n" +
+            "    </ol>\n" +
+            "</section>\n" +
+            "<section class=content>\n" +
+            "    <div class=box box-primary>\n" +
+            "        <div class=box-header with-border>\n" +
+            "            <h3 class=box-title>Transactions</h3>\n" +
+            "        </div>\n" +
+            "        <div class=box-body>\n" +
+            "            <div class=table-box>\n" +
+            "                <div class=pull-left>\n" +
+            "                    <div class=form-group form-inline>\n" +
+            "                        <div class=btn-group>\n" +
+            "                            <button type=button class=btn btn-default data-bs-toggle=modal data-bs-target=#myModal1\n" +
+            "                                    title=New><i class=fa fa-file-o></i> New\n" +
+            "                            </button>\n" +
+            "                            <button type=button id=delete-btn class=btn btn-default onclick=\"deleteList()\" title=Delete>\n" +
+            "                                <i class=fa fa-trash-o></i> Delete\n" +
+            "                            </button>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "                <table id=dataList class=table table-bordered table-striped table-hover dataTable>\n" +
+            "                </table>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "        <div class=box-footer>\n" +
+            "            <div class=pull-left>\n" +
+            "                <div class=form-group form-inline>\n" +
+            "                    Total\n" +
+            "                    <select class=form-control>\n" +
+            "                        <option>1</option>\n" +
+            "                        <option>2</option>\n" +
+            "                        <option>3</option>\n" +
+            "                        <option>4</option>\n" +
+            "                        <option>5</option>\n" +
+            "                    </select> Product\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "            <div class=box-tools pull-right>\n" +
+            "                <ul class=pagination>\n" +
+            "                    <li>\n" +
+            "                        <a href=# aria-label=Previous>Front page</a>\n" +
+            "                    </li>\n" +
+            "                    <li><a href=#>Previous page</a></li>\n" +
+            "                    <li><a href=#>1</a></li>\n" +
+            "                    <li><a href=#>2</a></li>\n" +
+            "                    <li><a href=#>3</a></li>\n" +
+            "                    <li><a href=#>Next page</a></li>\n" +
+            "                    <li>\n" +
+            "                        <a href=# aria-label=Next>Last page</a>\n" +
+            "                    </li>\n" +
+            "                </ul>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</section>"
+        document.getElementById("content").innerHTML = sst;
+        axios.get('http://localhost:8080/transaction').then(res => {
+            let list = res.data;
+            let str = '<thead>\
+                    <tr>\
+                        <th></th>\
+                        <th>Tên hành động</th>\
+                        <th>Tiền</th>\
+                        <th>Ngày Gửi</th>\
+                        <th>Ghi chú</th>\
+                        <th>Người tạo</th>\
+                        <th>Thao Tác</th>\
+                    </tr>\
+                </thead>\
+                <tbody style="text-align: center">';
 
-    //                                                      Ẩn - hiển thị password
+            for (let i = 0; i < list.length; i++) {
+                str += `<tr>\
+                    <td><input type="checkbox" value="${list[i].id}"></td>\
+                    <td>${list[i].transactionType.name}</td>\
+                    <td>${list[i].money}</td>\
+                    <td>${list[i].date}</td>\
+                    <td>${list[i].note}</td>\
+                    <td>${list[i].user.name}</td>\
+                    <td>\
+                        <a>\
+                            <select class="tuchon" style="text-align: center">\
+                                <option>Chi tiết</option>\
+                                <option>Sửa</option>\
+                            </select>\
+                        </a>\
+                    </td>\
+                </tr>`;
+            }
 
-    $(document).ready(function () {
-        $(".password-placeholder").on("click", function () {
-            $(".password-placeholder").on("click", function () {
-                let $passwordPlaceholder = $(this);
-                let $passwordText = $passwordPlaceholder.siblings(".password-text");
+            str += '</tbody>';
+            document.getElementById("dataList").innerHTML = str;
 
-                $passwordPlaceholder.hide();
-                $passwordText.show();
-
-                setTimeout(function () {
-                    $passwordText.hide();
-                    $passwordPlaceholder.show();
-                }, 1000);
+            $(document).ready(function () {
+                $("#dataList").dataTable();
             });
         });
-    });
-    //                                                      Cần thêm thư viện Jquery
-    // $(document).ready(function (){
-    //     $('#checkAll').click(function (){
-    //         if ($(this).is(":checked")){
-    //             $('.icheckbox_square-blue').pop('checked',true)
-    //         }else {
-    //             $('.icheckbox_square-blue').pop('checked',false)
-    //         }
-    //     })
-    // })
+    }
+    function addList(){
+        let data = {
+            transactionType:{
+                id: document.getElementById("transactionType_id").value,
+            },
+            date:document.getElementById("date").value,
+            money:document.getElementById("money").value,
+            note:document.getElementById("note").value,
+            user:{
+                id:document.getElementById("user_id").value,
+            }
+        }
+
+        axios.post("http://localhost:8080/transaction" ,data).then(() =>{
+            alert("thanh cong")
+            showList()
+        }).catch((e)=>{
+            alert("loi roi")
+            console.log(e.message)
+        })
+    }
+    function deleteList(){
+        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+        let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+
+        if (selectId.length === 0){
+            alert("Vui lòng chọn phần tử muốn xóa")
+            return;
+        }
+        axios.delete(`http://localhost:8080/transaction/${selectId}`,{}).then((res) =>{
+            console.log(res.data);
+            showList();
+        }).catch(() => {
+            alert(selectId)
+            alert('loi delete')
+        })
+
+    }
+    axios.get("http://localhost:8080/api/transactionType").then((res)=>{
+        let data = res.data
+        let content;
+        for (let i = 0; i < data.length ; i++) {
+            content += `<option value=${data[i].id}>${data[i].name}</option>`
+        }
+        document.getElementById("transactionType_id").innerHTML = content;
+    })
+    axios.get("http://localhost:8080/users").then((res)=>{
+        let data1 = res.data
+        let content1;
+        for (let i = 0; i < data1.length ; i++) {
+            content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
+        }
+        document.getElementById("user_id").innerHTML = content1;
+    })
 
 </script>
-
 </body>
-
 </html>

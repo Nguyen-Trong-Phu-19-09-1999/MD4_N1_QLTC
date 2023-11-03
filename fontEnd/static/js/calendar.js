@@ -236,6 +236,19 @@ function updateEvents(date) {
               <span class="event-time">${event.time}</span>
             </div>
         </div>`;
+
+                if (event.transactions && event.transactions.length > 0) {
+                    events += `<div class="transactions">`;
+                    event.transactions.forEach((transaction) => {
+                        events += `<div class="transaction">
+                            
+                        </div>`;
+                    });
+                    events += `</div>`;
+                }
+
+                events += `</div>`;
+
             });
         }
     });
