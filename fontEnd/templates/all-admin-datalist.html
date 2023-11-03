@@ -515,79 +515,77 @@
     }
     function showList() {
         let sst = "";
-        sst += " <section class=\"content-header\">\n" +
-            "            <h1>\n" +
-            "                Data Transactions\n" +
-            "                <small>List</small>\n" +
-            "            </h1>\n" +
-            "            <ol class=\"breadcrumb\">\n" +
-            "                <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n" +
-            "                <li><a href=\"#\">Trang chủ</a></li>\n" +
-            "                <li class=\"active\">Data List</li>\n" +
-            "            </ol>\n" +
-            "        </section>\n" +
-            "        <section class=\"content\">\n" +
-            "            <div class=\"box box-primary\">\n" +
-            "                <div class=\"box-header with-border\">\n" +
-            "                    <h3 class=\"box-title\">Transactions</h3>\n" +
-            "                </div>\n" +
-            "                <div class=\"box-body\">\n" +
-            "                    <div class=\"table-box\">\n" +
-            "                        <div class=\"pull-left\">\n" +
-            "                            <div class=\"form-group form-inline\">\n" +
-            "                                <div class=\"btn-group\">\n" +
-            "                                    <button type=\"button\" class=\"btn btn-default\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal1\"\n" +
-            "                                            title=\"New\"><i class=\"fa fa-file-o\"></i> New\n" +
-            "                                    </button>\n" +
-            "                                    <button type=\"submit\" id=\"delete-btn\" class=\"btn btn-default\" title=\"Delete\">\n" +
-            "                                        <i class=\"fa fa-trash-o\"></i> Delete\n" +
-            "                                    </button>\n" +
-            "                                </div>\n" +
-            "                            </div>\n" +
-            "                        </div>\n" +
-            "                        <table id=\"dataList\" class=\"table table-bordered table-striped table-hover dataTable\">\n" +
-            "\n" +
-            "                        </table>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "\n" +
-            "                <div class=\"box-footer\">\n" +
-            "                    <div class=\"pull-left\">\n" +
-            "                        <div class=\"form-group form-inline\">\n" +
-            "                            Total\n" +
-            "                            <select class=\"form-control\">\n" +
-            "                                <option>1</option>\n" +
-            "                                <option>2</option>\n" +
-            "                                <option>3</option>\n" +
-            "                                <option>4</option>\n" +
-            "                                <option>5</option>\n" +
-            "                            </select> Product\n" +
+        sst += "<section class=content-header>\n" +
+            "    <h1>\n" +
+            "        Data Transactions\n" +
+            "        <small>List</small>\n" +
+            "    </h1>\n" +
+            "    <ol class=breadcrumb>\n" +
+            "        <li><a href=#><i class=fa fa-dashboard></i> Home</a></li>\n" +
+            "        <li><a href=#>Trang chủ</a></li>\n" +
+            "        <li class=active>Data List</li>\n" +
+            "    </ol>\n" +
+            "</section>\n" +
+            "<section class=content>\n" +
+            "    <div class=box box-primary>\n" +
+            "        <div class=box-header with-border>\n" +
+            "            <h3 class=box-title>Transactions</h3>\n" +
+            "        </div>\n" +
+            "        <div class=box-body>\n" +
+            "            <div class=table-box>\n" +
+            "                <div class=pull-left>\n" +
+            "                    <div class=form-group form-inline>\n" +
+            "                        <div class=btn-group>\n" +
+            "                            <button type=button class=btn btn-default data-bs-toggle=modal data-bs-target=#myModal1\n" +
+            "                                    title=New><i class=fa fa-file-o></i> New\n" +
+            "                            </button>\n" +
+            "                            <button type=button id=delete-btn class=btn btn-default onclick=\"deleteList()\" title=Delete>\n" +
+            "                                <i class=fa fa-trash-o></i> Delete\n" +
+            "                            </button>\n" +
             "                        </div>\n" +
             "                    </div>\n" +
-            "\n" +
-            "                    <div class=\"box-tools pull-right\">\n" +
-            "                        <ul class=\"pagination\">\n" +
-            "                            <li>\n" +
-            "                                <a href=\"#\" aria-label=\"Previous\">Front page</a>\n" +
-            "                            </li>\n" +
-            "                            <li><a href=\"#\">Previous page</a></li>\n" +
-            "                            <li><a href=\"#\">1</a></li>\n" +
-            "                            <li><a href=\"#\">2</a></li>\n" +
-            "                            <li><a href=\"#\">3</a></li>\n" +
-            "                            <li><a href=\"#\">Next page</a></li>\n" +
-            "                            <li>\n" +
-            "                                <a href=\"#\" aria-label=\"Next\">Last page</a>\n" +
-            "                            </li>\n" +
-            "                        </ul>\n" +
-            "                    </div>\n" +
+            "                </div>\n" +
+            "                <table id=dataList class=table table-bordered table-striped table-hover dataTable>\n" +
+            "                </table>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "        <div class=box-footer>\n" +
+            "            <div class=pull-left>\n" +
+            "                <div class=form-group form-inline>\n" +
+            "                    Total\n" +
+            "                    <select class=form-control>\n" +
+            "                        <option>1</option>\n" +
+            "                        <option>2</option>\n" +
+            "                        <option>3</option>\n" +
+            "                        <option>4</option>\n" +
+            "                        <option>5</option>\n" +
+            "                    </select> Product\n" +
             "                </div>\n" +
             "            </div>\n" +
-            "        </section>"
+            "            <div class=box-tools pull-right>\n" +
+            "                <ul class=pagination>\n" +
+            "                    <li>\n" +
+            "                        <a href=# aria-label=Previous>Front page</a>\n" +
+            "                    </li>\n" +
+            "                    <li><a href=#>Previous page</a></li>\n" +
+            "                    <li><a href=#>1</a></li>\n" +
+            "                    <li><a href=#>2</a></li>\n" +
+            "                    <li><a href=#>3</a></li>\n" +
+            "                    <li><a href=#>Next page</a></li>\n" +
+            "                    <li>\n" +
+            "                        <a href=# aria-label=Next>Last page</a>\n" +
+            "                    </li>\n" +
+            "                </ul>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</section>"
         document.getElementById("content").innerHTML = sst;
         axios.get('http://localhost:8080/transaction').then(res => {
             let list = res.data;
             let str = '<thead>\
                     <tr>\
+                        <th></th>\
                         <th>Tên hành động</th>\
                         <th>Tiền</th>\
                         <th>Ngày Gửi</th>\
@@ -600,6 +598,7 @@
 
             for (let i = 0; i < list.length; i++) {
                 str += `<tr>\
+                    <td><input type="checkbox" value="${list[i].id}"></td>\
                     <td>${list[i].transactionType.name}</td>\
                     <td>${list[i].money}</td>\
                     <td>${list[i].date}</td>\
@@ -624,7 +623,6 @@
             });
         });
     }
-    showList();
     function addList(){
         let data = {
             transactionType:{
@@ -638,12 +636,29 @@
             }
         }
 
-        axios.post("http://localhost:8080/transaction" ,data).then((res) =>{
-            alert("thanh cong")
+        axios.post("http://localhost:8080/transaction" ,data).then(() =>{
         }).catch((e)=>{
             alert("loi roi")
             console.log(e.message)
         })
+    }
+    showList();
+    function deleteList(){
+        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+        let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+
+        if (selectId.length === 0){
+            alert("Vui lòng chọn phần tử muốn xóa")
+            return;
+        }
+        axios.delete(`http://localhost:8080/transaction/${selectId}`,{}).then((res) =>{
+            console.log(res.data);
+            showList();
+        }).catch(() => {
+            alert(selectId)
+            alert('loi delete')
+        })
+
     }
     axios.get("http://localhost:8080/api/transactionType").then((res)=>{
         let data = res.data
@@ -661,7 +676,6 @@
         }
         document.getElementById("user_id").innerHTML = content1;
     })
-
 </script>
 </body>
 </html>
