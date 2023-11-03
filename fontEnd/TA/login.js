@@ -2,7 +2,7 @@ function login(){
     let data =
         {
             name: document.getElementById("name").value,
-            password: document.getElementById("psw").value
+            password: document.getElementById("psw").value,
         }
     axios.post("http://localhost:8080/users/login", data).then(() => {
         localStorage.setItem('name',document.getElementById("name").value)
