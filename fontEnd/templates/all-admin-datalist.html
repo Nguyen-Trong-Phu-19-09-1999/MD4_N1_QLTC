@@ -637,12 +637,12 @@
         }
 
         axios.post("http://localhost:8080/transaction" ,data).then(() =>{
-            alert("thanh cong")
         }).catch((e)=>{
             alert("loi roi")
             console.log(e.message)
         })
     }
+    showList();
     function deleteList(){
         let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
         let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
@@ -676,7 +676,6 @@
         }
         document.getElementById("user_id").innerHTML = content1;
     })
-
 </script>
 </body>
 </html>
