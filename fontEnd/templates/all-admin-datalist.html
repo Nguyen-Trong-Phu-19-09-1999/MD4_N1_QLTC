@@ -271,17 +271,19 @@
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu" id="user-main">
+                    <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../static/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs" id="usernamePlaceholder"></span>
+                            <span>Hữu Sỹ</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="../static/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                <p id="user_name_role">
 
+                                <p>
+                                    Hữu Sỹ - Quản trị viên
+                                    <small>Đăng nhập lần cuối: 11:20AM</small>
                                 </p>
                             </li>
                             <li class="user-footer">
@@ -289,7 +291,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Thay đổi mật khẩu</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+                                    <a href="all-admin-login.html" class="btn btn-default btn-flat">Đăng xuất</a>
                                 </div>
                             </li>
                         </ul>
@@ -318,8 +320,9 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">Home</li>
-                <li id="admin-index"><a href="/home/"><i class="fa fa-dashboard"></i>
-                    <span>Home</span></a></li>
+
+                    <li><a onclick="showList()"><i class="fa fa-transgender"></i> Home</a></li>
+
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-folder"></i> <span>Trang chủ</span>
@@ -336,7 +339,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#" onclick="showList()"><i class="fa fa-transgender"></i> Transaction</a></li>
+                                <li><a onclick="showList()"><i class="fa fa-transgender"></i> Transaction</a></li>
                             </ul>
                         </li>
                         <li id="admin-profile">
@@ -497,9 +500,6 @@
 <script src="../static/js/bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
 <script>
-    let username = localStorage.getItem("name");
-    document.getElementById("usernamePlaceholder").innerText = username;
-    document.getElementById("user_name_role").innerHTML = `${username} - Quản trị viên<small>Đăng nhập lần cuối: 11:20AM</small>`
     $(document).ready(function () {
         $(".select2").select2();
         $(".textarea").wysihtml5({
@@ -514,169 +514,6 @@
             liObj.addClass("active");
         }
     }
-    function showList() {
-        let sst = "";
-        sst += "<section class=content-header>\n" +
-            "    <h1>\n" +
-            "        Data Transactions\n" +
-            "        <small>List</small>\n" +
-            "    </h1>\n" +
-            "    <ol class=breadcrumb>\n" +
-            "        <li><a href=#><i class=fa fa-dashboard></i> Home</a></li>\n" +
-            "        <li><a href=#>Trang chủ</a></li>\n" +
-            "        <li class=active>Data List</li>\n" +
-            "    </ol>\n" +
-            "</section>\n" +
-            "<section class=content>\n" +
-            "    <div class=box box-primary>\n" +
-            "        <div class=box-header with-border>\n" +
-            "            <h3 class=box-title>Transactions</h3>\n" +
-            "        </div>\n" +
-            "        <div class=box-body>\n" +
-            "            <div class=table-box>\n" +
-            "                <div class=pull-left>\n" +
-            "                    <div class=form-group form-inline>\n" +
-            "                        <div class=btn-group>\n" +
-            "                            <button type=button class=btn btn-default data-bs-toggle=modal data-bs-target=#myModal1\n" +
-            "                                    title=New><i class=fa fa-file-o></i> New\n" +
-            "                            </button>\n" +
-            "                            <button type=button id=delete-btn class=btn btn-default onclick=\"deleteList()\" title=Delete>\n" +
-            "                                <i class=fa fa-trash-o></i> Delete\n" +
-            "                            </button>\n" +
-            "                        </div>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "                <table id=dataList class=table table-bordered table-striped table-hover dataTable>\n" +
-            "                </table>\n" +
-            "            </div>\n" +
-            "        </div>\n" +
-            "        <div class=box-footer>\n" +
-            "            <div class=pull-left>\n" +
-            "                <div class=form-group form-inline>\n" +
-            "                    Total\n" +
-            "                    <select class=form-control>\n" +
-            "                        <option>1</option>\n" +
-            "                        <option>2</option>\n" +
-            "                        <option>3</option>\n" +
-            "                        <option>4</option>\n" +
-            "                        <option>5</option>\n" +
-            "                    </select> Product\n" +
-            "                </div>\n" +
-            "            </div>\n" +
-            "            <div class=box-tools pull-right>\n" +
-            "                <ul class=pagination>\n" +
-            "                    <li>\n" +
-            "                        <a href=# aria-label=Previous>Front page</a>\n" +
-            "                    </li>\n" +
-            "                    <li><a href=#>Previous page</a></li>\n" +
-            "                    <li><a href=#>1</a></li>\n" +
-            "                    <li><a href=#>2</a></li>\n" +
-            "                    <li><a href=#>3</a></li>\n" +
-            "                    <li><a href=#>Next page</a></li>\n" +
-            "                    <li>\n" +
-            "                        <a href=# aria-label=Next>Last page</a>\n" +
-            "                    </li>\n" +
-            "                </ul>\n" +
-            "            </div>\n" +
-            "        </div>\n" +
-            "    </div>\n" +
-            "</section>"
-        document.getElementById("content").innerHTML = sst;
-        axios.get('http://localhost:8080/transaction').then(res => {
-            let list = res.data;
-            let str = '<thead>\
-                    <tr>\
-                        <th></th>\
-                        <th>Tên hành động</th>\
-                        <th>Tiền</th>\
-                        <th>Ngày Gửi</th>\
-                        <th>Ghi chú</th>\
-                        <th>Người tạo</th>\
-                        <th>Thao Tác</th>\
-                    </tr>\
-                </thead>\
-                <tbody style="text-align: center">';
-
-            for (let i = 0; i < list.length; i++) {
-                str += `<tr>\
-                    <td><input type="checkbox" value="${list[i].id}"></td>\
-                    <td>${list[i].transactionType.name}</td>\
-                    <td>${list[i].money}</td>\
-                    <td>${list[i].date}</td>\
-                    <td>${list[i].note}</td>\
-                    <td>${list[i].user.name}</td>\
-                    <td>\
-                        <a>\
-                            <select class="tuchon" style="text-align: center">\
-                                <option>Chi tiết</option>\
-                                <option>Sửa</option>\
-                            </select>\
-                        </a>\
-                    </td>\
-                </tr>`;
-            }
-
-            str += '</tbody>';
-            document.getElementById("dataList").innerHTML = str;
-
-            $(document).ready(function () {
-                $("#dataList").dataTable();
-            });
-        });
-    }
-    function addList(){
-        let data = {
-            transactionType:{
-                id: document.getElementById("transactionType_id").value,
-            },
-            date:document.getElementById("date").value,
-            money:document.getElementById("money").value,
-            note:document.getElementById("note").value,
-            user:{
-                id:document.getElementById("user_id").value,
-            }
-        }
-
-        axios.post("http://localhost:8080/transaction" ,data).then(() =>{
-        }).catch((e)=>{
-            alert("loi roi")
-            console.log(e.message)
-        })
-    }
-    showList();
-    function deleteList(){
-        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
-        let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
-
-        if (selectId.length === 0){
-            alert("Vui lòng chọn phần tử muốn xóa")
-            return;
-        }
-        axios.delete(`http://localhost:8080/transaction/${selectId}`,{}).then((res) =>{
-            console.log(res.data);
-            showList();
-        }).catch(() => {
-            alert(selectId)
-            alert('loi delete')
-        })
-
-    }
-    axios.get("http://localhost:8080/api/transactionType").then((res)=>{
-        let data = res.data
-        let content;
-        for (let i = 0; i < data.length ; i++) {
-            content += `<option value=${data[i].id}>${data[i].name}</option>`
-        }
-        document.getElementById("transactionType_id").innerHTML = content;
-    })
-    axios.get("http://localhost:8080/users").then((res)=>{
-        let data1 = res.data
-        let content1;
-        for (let i = 0; i < data1.length ; i++) {
-            content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
-        }
-        document.getElementById("user_id").innerHTML = content1;
-    })
 
 </script>
 </body>
