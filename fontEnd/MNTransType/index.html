@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Danh sách loại giao dịch</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body onload="findAll()">
+<h1 style="text-align: center"></h1>
+<div class="container">
+    <div id="list" class="list"></div>
+    <div id="page"></div>
+</div>
+
+<div id="create"
+     style="width: 500px ; margin-left: 500px ;display: flex;justify-content: space-around;background-color: white;padding: 20px; margin-top: 5px">
+    <h1>Create form</h1>
+    <table style="width: 400px">
+        <tr>
+            <td><label for="name">Tên giao dịch</label></td>
+            <td><input type="text" id="name"></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button onclick="create()">Create</button>
+            </td>
+            <a href="index.html" class="back-button">Quay lại</a>
+        </tr>
+    </table>
+</div>
+
+<div id="update"
+     style="width: 500px ; margin-left: 500px ;display: flex;justify-content: space-around;background-color: white;padding: 20px; margin-top: 5px">
+    <h1>Update form</h1>
+    <table>
+        <tr>
+            <td><label for="name-u">Tên giao dịch</label></td>
+            <td><input type="text" id="name-u"></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="update()">Update</button>
+            </td>
+            <a href="index.html" class="back-button">Quay lại</a>
+        </tr>
+    </table>
+</div>
+<div id="views"></div>
+</body>
+</html>
