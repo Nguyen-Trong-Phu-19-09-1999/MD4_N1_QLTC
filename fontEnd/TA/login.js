@@ -1,15 +1,24 @@
-function login(){
-    let data =
-        {
-            username: document.getElementById("name").value,
-            password: document.getElementById("psw").value,
-        }
-    axios.post("http://localhost:8080/login", data).then(() => {
-        localStorage.setItem('name',document.getElementById("name").value)
-        window.location.href = "../templates/all-admin-datalist.html";
-        loadUser();
-    });
+function login() {
+    let data = {
+        username: document.getElementById("name").value,
+        password: document.getElementById("psw").value,
+    };
+
+    axios.post("http://localhost:8080/login", data)
+        .then((response) => {
+            localStorage.setItem('name', data.username);
+            window.location.href = "../templates/all-admin-datalist.html";
+            loadUser();
+        })
+        .catch((error) => {
+            if (error && error.response && error.response.status === 401) {
+                alert("Sai thông tin đăng nhập");
+            } else {
+                console.error("Login error:", error);
+            }
+        });
 }
+
 function showFormLogin(){
     document.getElementById('body').innerHTML = `
 
