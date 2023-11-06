@@ -16,17 +16,14 @@ function showFormRegister(){
     </table>`
 }
 function register(){
-
     let data =
         {
-            name: document.getElementById("name").value,
+            username: document.getElementById("name").value,
             password: document.getElementById("password").value,
-            role: {
-                id: 2
-            }
+            confirmPassword: document.getElementById("confirm").value,
         }
 
-    axios.post("http://localhost:8080/users/register", data).then(() => {
+    axios.post("http://localhost:8080/register",data).then(() => {
 
         alert("Register success")
 

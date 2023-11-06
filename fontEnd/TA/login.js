@@ -1,12 +1,11 @@
 function login(){
     let data =
         {
-            name: document.getElementById("name").value,
+            username: document.getElementById("name").value,
             password: document.getElementById("psw").value,
         }
-    axios.post("http://localhost:8080/users/login", data).then(() => {
+    axios.post("http://localhost:8080/login", data).then(() => {
         localStorage.setItem('name',document.getElementById("name").value)
-        alert("Login success")
         window.location.href = "../templates/all-admin-datalist.html";
         loadUser();
     });

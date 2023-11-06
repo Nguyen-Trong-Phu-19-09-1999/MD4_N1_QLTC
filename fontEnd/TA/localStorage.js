@@ -1,10 +1,9 @@
 function loadUser(){
     let name = localStorage.getItem('name');
     if(name ==null){
-        document.getElementById('loaduser').innerHTML =``
-
+        window.location.href = "all-admin-login.html"
     }else {
-        document.getElementById('loaduser').innerHTML= `<div>
+        document.getElementById('user-main').innerHTML= `<div>
           xin chao ${name}
           <div onclick="logout()">Logout</div>
           </div>`
