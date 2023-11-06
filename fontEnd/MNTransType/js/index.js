@@ -3,7 +3,7 @@ function findAll() {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/transactiontype",
+        url: "http://localhost:8080/api/transactionType",
         success: function (data) {
             console.log(data)
             displayTable(data)
@@ -46,7 +46,7 @@ function displayTable(value) {
 
 function views(id) {
     $.ajax({
-        url: `http://localhost:8080/api/transactiontype/${id}`,
+        url: `http://localhost:8080/api/transactionType/${id}`,
         type: "GET",
         success: function (TransactionType) {
             let content = `
@@ -98,7 +98,7 @@ function create(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        url: "http://localhost:8080/api/transactiontype",
+        url: "http://localhost:8080/api/transactionType",
         type: "POST",
         data: JSON.stringify(transactiontype),
         success: function (){
@@ -111,7 +111,7 @@ function create(){
 function deleteTransactionType(id){
     if(confirm("are you sure ?")){
         $.ajax({
-            url: `http://localhost:8080/api/transactiontype/${id}`,
+            url: `http://localhost:8080/api/transactionType/${id}`,
             type: "DELETE",
             success: findAll
         })
@@ -121,7 +121,7 @@ function deleteTransactionType(id){
 let idUpdate;
 function displayFormUpdate(id) {
     $.ajax({
-        url: `http://localhost:8080/api/transactiontype/${id}`,
+        url: `http://localhost:8080/api/transactionType/${id}`,
         type: "GET",
         success: function (TransactionType) {
             idUpdate = TransactionType.id
@@ -148,7 +148,7 @@ function update(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        url: `http://localhost:8080/api/transactiontype/${idUpdate}`,
+        url: `http://localhost:8080/api/transactionType/${idUpdate}`,
         type: "PUT",
         data: JSON.stringify(transactiontype),
         success: function (){

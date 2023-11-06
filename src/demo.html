@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+</head>
+<body>
+<table id="user">
+    <tr>
+        <th>ID</th>
+        <th>UserName</th>
+    </tr>
+</table>
+</body>
+<script>
+    let text = "";
+    axios.get("http://localhost:8080/users").then((results) => {
+        let array = results.data;
+        console.log(array)
+        for (let i = 0; i < array.length; i++) {
+            text += `
+            <tr >
+                 <td>${array[i].id}</td>
+                 <td>${array[i].username}</td>
+                 <td>${array[i].roles[0].name}</td>
+            </tr>`
+        }
+        document.getElementById("user").innerHTML = text;
+    })
+
+
+</script>
+
+</html>
