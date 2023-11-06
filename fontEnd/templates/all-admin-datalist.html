@@ -38,9 +38,16 @@
         .password-field::after {
             content: '*';
         }
+
         button.btn {
             margin-right: 5px;
         }
+        /*.form{*/
+        /*    width: 50px;*/
+        /*    height: 50px;*/
+        /*}*/
+
+
     </style>
     <link rel="stylesheet" href="../static/css/jquery.dataTables.css">
 </head>
@@ -339,7 +346,8 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#" onclick="showList()"><i class="fa fa-transgender"></i> Transaction</a></li>
+                                <li><a href="#" onclick="showList()"><i class="fa fa-transgender"></i> Transaction</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -414,34 +422,50 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"
-                        style="align-items: center;margin: auto;font-size: 13px">Thêm Mới</h5>
+                        style="align-items: center;margin: auto;font-size: 13px">5 Người dùng mới nhất</h5>
                 </div>
+<!--                <div class="modal-body">-->
+<!--                    <form role="form" novalidate="novalidate">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="transactionType_id">Kiểu</label>-->
+<!--                            <select name="transactionType_id" id="transactionType_id"></select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="money">Tiền</label>-->
+<!--                            <input type="number" class="form-control" id="money">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="date">Ngày Gửi</label>-->
+<!--                            <input type="date" class="form-control" id="date">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="note">Ghi chú</label>-->
+<!--                            <input type="text" class="form-control" id="note">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="user_id">Người tạo</label>-->
+<!--                            <select name="user_id" id="user_id"></select>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                            <button class="btn btn-primary" onclick="addList()">Save changes</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
                 <div class="modal-body">
-                    <form role="form" novalidate="novalidate">
-                        <div class="form-group">
-                            <label for="transactionType_id">Kiểu</label>
-                            <select name="transactionType_id" id="transactionType_id"></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="money">Tiền</label>
-                            <input type="number" class="form-control" id="money">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Ngày Gửi</label>
-                            <input type="date" class="form-control" id="date">
-                        </div>
-                        <div class="form-group">
-                            <label for="note">Ghi chú</label>
-                            <input type="text" class="form-control" id="note">
-                        </div>
-                        <div class="form-group">
-                            <label for="user_id">Người tạo</label>
-                            <select name="user_id" id="user_id"></select>
-                        </div>
+                    <form class="form" novalidate="novalidate">
+                        <table class="form-group">
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên người dùng</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </table>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button class="btn btn-primary" onclick="addList()">Save changes</button>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -514,6 +538,7 @@
             liObj.addClass("active");
         }
     }
+
     function showList() {
         let sst = "";
         sst += " <section class=\"content-header\">\n" +
@@ -530,71 +555,71 @@
             "                    <!-- small box -->\n" +
             "                    <div class=\"small-box bg-aqua\">\n" +
             "                        <div class=\"inner\">\n" +
-            "                            <h3>60</h3>\n" +
-            "                            <p>Đơn hàng</p>\n" +
-            "                        </div>\n" +
-            "                        <div class=\"icon\">\n" +
-            "                            <i class=\"ion ion-bag\"></i>\n" +
-            "                        </div>\n" +
-            "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal1\">\n" +
-            "                            <button class=\"info\">Chi tiết</button>\n" +
-            "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "                <!-- ./col -->\n" +
-            "                <div class=\"col-lg-3 col-xs-6\">\n" +
-            "                    <!-- small box -->\n" +
-            "                    <div class=\"small-box bg-green\">\n" +
-            "                        <div class=\"inner\">\n" +
-            "                            <h3>53<sup style=\"font-size: 20px\">%</sup></h3>\n" +
-            "\n" +
-            "                            <p>Tỷ lệ chuyển đổi</p>\n" +
-            "                        </div>\n" +
-            "                        <div class=\"icon\">\n" +
-            "                            <i class=\"fa fa-first-order\"></i>\n" +
-            "                        </div>\n" +
-            "                        <a class=\"small-box-footer\">\n" +
-            "                            <button class=\"info\" id=\"btn-modal\">Chi tiết</button>\n" +
-            "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "                <!-- ./col -->\n" +
-            "                <div class=\"col-lg-3 col-xs-6\">\n" +
-            "                    <!-- small box -->\n" +
-            "                    <div class=\"small-box bg-yellow\">\n" +
-            "                        <div class=\"inner\">\n" +
-            "                            <h3>60</h3>\n" +
-            "                            <p>Người dùng mới</p>\n" +
-            "                        </div>\n" +
-            "                        <div class=\"icon\">\n" +
-            "                            <i class=\"fa fa-user\"></i>\n" +
-            "                        </div>\n" +
-            "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal3\">\n" +
-            "                            <button class=\"info\" id=\"btn-modalUser\">Chi tiết</button>\n" +
-            "                            <i class=\"fa fa-arrow-circle-right\"></i>\n" +
-            "                        </a>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "                <!-- ./col -->\n" +
-            "                <div class=\"col-lg-3 col-xs-6\">\n" +
-            "                    <!-- small box -->\n" +
-            "                    <div class=\"small-box bg-red\">\n" +
-            "                        <div class=\"inner\">\n" +
-            "                            <h3>60</h3>\n" +
-            "                            <p>Công việc</p>\n" +
-            "                        </div>\n" +
-            "                        <div class=\"icon\">\n" +
-            "                            <i class=\"fa fa-calendar\"></i>\n" +
-            "                        </div>\n" +
-            "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal2\">\n" +
-            "                            <button class=\"info\">Chi tiết</button>\n" +
-            "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "                <!-- ./col -->\n" +
-            "            </div>\n" +
-            "            <!-- /.row -->\n" +
-            "        </section>"
+            "                            <h3 id='quantity'></h3>\n" +
+        "                            <p>Người dùng</p>\n" +
+        "                        </div>\n" +
+        "                        <div class=\"icon\">\n" +
+        "                            <i class=\"ion ion-bag\"></i>\n" +
+        "                        </div>\n" +
+        "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal1\">\n" +
+        "                            <button class=\"info\">Chi tiết</button>\n" +
+        "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "                <!-- ./col -->\n" +
+        "                <div class=\"col-lg-3 col-xs-6\">\n" +
+        "                    <!-- small box -->\n" +
+        "                    <div class=\"small-box bg-green\">\n" +
+        "                        <div class=\"inner\">\n" +
+        "                            <h3 id='quantity2'></h3>\n" +
+        "\n" +
+        "                            <p>Loại giao dịch</p>\n" +
+        "                        </div>\n" +
+        "                        <div class=\"icon\">\n" +
+        "                            <i class=\"fa fa-first-order\"></i>\n" +
+        "                        </div>\n" +
+        "                        <a class=\"small-box-footer\">\n" +
+        "                            <button class=\"info\" id=\"btn-modal\">Chi tiết</button>\n" +
+        "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "                <!-- ./col -->\n" +
+        "                <div class=\"col-lg-3 col-xs-6\">\n" +
+        "                    <!-- small box -->\n" +
+        "                    <div class=\"small-box bg-yellow\">\n" +
+        "                        <div class=\"inner\">\n" +
+        "                            <h3>60</h3>\n" +
+        "                            <p>Người dùng mới</p>\n" +
+        "                        </div>\n" +
+        "                        <div class=\"icon\">\n" +
+        "                            <i class=\"fa fa-user\"></i>\n" +
+        "                        </div>\n" +
+        "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal3\">\n" +
+        "                            <button class=\"info\" id=\"btn-modalUser\">Chi tiết</button>\n" +
+        "                            <i class=\"fa fa-arrow-circle-right\"></i>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "                <!-- ./col -->\n" +
+        "                <div class=\"col-lg-3 col-xs-6\">\n" +
+        "                    <!-- small box -->\n" +
+        "                    <div class=\"small-box bg-red\">\n" +
+        "                        <div class=\"inner\">\n" +
+        "                            <h3>60</h3>\n" +
+        "                            <p>Công việc</p>\n" +
+        "                        </div>\n" +
+        "                        <div class=\"icon\">\n" +
+        "                            <i class=\"fa fa-calendar\"></i>\n" +
+        "                        </div>\n" +
+        "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal2\">\n" +
+        "                            <button class=\"info\">Chi tiết</button>\n" +
+        "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "                <!-- ./col -->\n" +
+        "            </div>\n" +
+        "            <!-- /.row -->\n" +
+        "        </section>"
         sst += "<section class=content-header>\n" +
             "    <h1>\n" +
             "        Data Transactions\n" +
@@ -677,34 +702,46 @@
             });
         });
     }
-    function addList(){
+    axios.get("http://localhost:8080/users").then((results) => {
+        let array = results.data;
+        document.getElementById("quantity").innerHTML = array.length
+        console.log(array)
+    })
+    axios.get("http://localhost:8080/api/transactionType").then((results2) => {
+        let array = results2.data;
+        document.getElementById("quantity2").innerHTML = array.length
+        console.log(array)
+    })
+    function addList() {
         let data = {
-            transactionType:{
+            transactionType: {
                 id: document.getElementById("transactionType_id").value,
             },
-            date:document.getElementById("date").value,
-            money:document.getElementById("money").value,
-            note:document.getElementById("note").value,
-            user:{
-                id:document.getElementById("user_id").value,
+            date: document.getElementById("date").value,
+            money: document.getElementById("money").value,
+            note: document.getElementById("note").value,
+            user: {
+                id: document.getElementById("user_id").value,
             }
         }
 
-        axios.post("http://localhost:8080/transaction" ,data).then(() =>{
-        }).catch((e)=>{
+        axios.post("http://localhost:8080/transaction", data).then(() => {
+        }).catch((e) => {
             alert("loi roi")
             console.log(e.message)
         })
     }
+
     showList();
-    function editList(){
+
+    function editList() {
         let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
         let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
-        if (selectId.length === 0){
+        if (selectId.length === 0) {
             alert("Vui lòng chọn phần tử muốn xóa")
             return;
         }
-        axios.get(`http://localhost:8080/transaction/${selectId}`).then((res) =>{
+        axios.get(`http://localhost:8080/transaction/${selectId}`).then((res) => {
             let data = res.data;
 
             document.getElementById("transactionType_id").value = data.transactionType.id;
@@ -713,7 +750,7 @@
             document.getElementById("note").value = data.note;
             document.getElementById("user_id").value = data.user.id;
 
-            let ax =``
+            let ax = ``
             ax += `<div class="modal" id="myModal2">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -754,11 +791,12 @@
             </div>`
             document.body.insertAdjacentHTML('beforeend', ax);
             $('#myModal2').modal('show');
-        }).catch((e) =>{
+        }).catch((e) => {
             console.log(selectId)
             console.error(e)
         })
     }
+
     function updateList(selectId) {
         let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
         selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
@@ -790,15 +828,16 @@
                 console.error(e);
             });
     }
-    function deleteList(){
+
+    function deleteList() {
         let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
         let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
 
-        if (selectId.length === 0){
+        if (selectId.length === 0) {
             alert("Vui lòng chọn phần tử muốn xóa")
             return;
         }
-        axios.delete(`http://localhost:8080/transaction/${selectId}`,{}).then((res) =>{
+        axios.delete(`http://localhost:8080/transaction/${selectId}`, {}).then((res) => {
             console.log(res.data);
             showList();
         }).catch(() => {
@@ -807,18 +846,19 @@
         })
 
     }
-    axios.get("http://localhost:8080/api/transactionType").then((res)=>{
+
+    axios.get("http://localhost:8080/api/transactionType").then((res) => {
         let data = res.data
         let content;
-        for (let i = 0; i < data.length ; i++) {
+        for (let i = 0; i < data.length; i++) {
             content += `<option value=${data[i].id}>${data[i].name}</option>`
         }
         document.getElementById("transactionType_id").innerHTML = content;
     })
-    axios.get("http://localhost:8080/users").then((res)=>{
+    axios.get("http://localhost:8080/users").then((res) => {
         let data1 = res.data
         let content1;
-        for (let i = 0; i < data1.length ; i++) {
+        for (let i = 0; i < data1.length; i++) {
             content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
         }
         document.getElementById("user_id").innerHTML = content1;

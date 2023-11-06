@@ -3,7 +3,6 @@ package com.example.casemd4.controller;
 import com.example.casemd4.model.JwtResponse;
 import com.example.casemd4.model.Role;
 import com.example.casemd4.model.User;
-import com.example.casemd4.repository.IUserRepository;
 import com.example.casemd4.service.Impl.JwtService;
 import com.example.casemd4.service.Impl.RoleService;
 import com.example.casemd4.service.Impl.UserService;
@@ -21,12 +20,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @RestController
 @CrossOrigin("*")
+@RequestMapping("")
 public class UserController {
 //    @Autowired
 //    IUserRepository iUserRepository;
@@ -109,6 +108,7 @@ public class UserController {
         Iterable<User> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
     @GetMapping("/admin/users")
     public ResponseEntity<Iterable<User>> showAllUserByAdmin() {
         Iterable<User> users = userService.findAll();
