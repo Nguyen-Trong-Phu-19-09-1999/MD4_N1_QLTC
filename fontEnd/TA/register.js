@@ -24,9 +24,24 @@ function register(){
         }
 
     axios.post("http://localhost:8080/register",data).then(() => {
-
+        window.location.href = '../templates/all-admin-login.html'
         alert("Register success")
 
+    }).catch((error) => {
+        if (error.response) {
+            if (error.response.status === 400) {
+                alert("Đăng ký không thành công. Vui lòng kiểm tra lại thông tin.");
+            } else {
+                console.error("Server error:", error.response.data);
+                alert("Đã xảy ra lỗi khi đăng ký");
+            }
+        } else if (error.request) {
+            console.error("No response received from the server");
+            alert("Không có phản hồi từ máy chủ");
+        } else {
+            console.error("Request setup error:", error.message);
+            alert("Đã xảy ra lỗi khi thiết lập yêu cầu");
+        }
     });
 
 }
