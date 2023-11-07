@@ -36,4 +36,19 @@ public class TransactionService implements ITransactionService<Transactions> {
     public void delete(Long id) {
         iTransactionRepository.deleteById(id);
     }
+
+    @Override
+    public Double getTotalMoneyByMonth(Integer month) {
+        return iTransactionRepository.getTotalMoneyByMonth(month);
+    }
+
+    @Override
+    public Double getTotalMoneyByDay(Integer day) {
+        return iTransactionRepository.getTotalMoneyByDay(day);
+    }
+
+    @Override
+    public List<Transactions> find5TransactionFamilyExpenseNeares() {
+        return iTransactionRepository.find5TransactionFamilyExpenseNearest();
+    }
 }

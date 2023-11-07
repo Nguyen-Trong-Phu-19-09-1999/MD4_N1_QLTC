@@ -27,5 +27,5 @@ public interface ITransactionRepository extends JpaRepository<Transactions, Long
     // lấy ra 5 giao dịch chi tiêu gia đình gần nhất
     @Query("SELECT t FROM Transactions t " +
             "ORDER BY t.date DESC")
-    List<Transactions> find5TransactionFamilyExpenseNearest(@Param("idUser") Long idUser);
+    List<Transactions> find5TransactionFamilyExpenseNearest();
 }

@@ -75,4 +75,18 @@ public class TransactionController {
 
         return transactionDataList;
     }
+    @GetMapping("/total-money/{month}")
+    public Double getTotalMoneyByMonth(@PathVariable("month") Integer month) {
+        return transactionService.getTotalMoneyByMonth(month);
+    }
+
+    @GetMapping("/total-money/{day}")
+    public Double getTotalMoneyByDay(@PathVariable("day") Integer day) {
+        return transactionService.getTotalMoneyByDay(day);
+    }
+
+    @GetMapping("/family-expense")
+    public List<Transactions> find5TransactionFamilyExpenseNearest() {
+        return transactionService.find5TransactionFamilyExpenseNeares();
+    }
 }
