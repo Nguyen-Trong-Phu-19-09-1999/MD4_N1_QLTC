@@ -49,7 +49,7 @@
 <body class="hold-transition skin-purple sidebar-mini" id="log">
 <div class="wrapper">
     <!-- header-->
-    <header class="main-header" id="admin">
+    <header class="main-header">
         <!-- Logo -->
         <a href="/home/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -519,6 +519,26 @@
             }
             document.getElementById("user_id").innerHTML = content1;
         })
+        const currentDate = new Date();
+        const day = currentDate.getDate();
+        const month = currentDate.getMonth();
+        axios.get(`http://localhost:8080/transaction/totalMoney/${month}`)
+            .then(response => {
+                const totalMoney = response.data;
+                console.log("Total money:", totalMoney);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        axios.get(`http://localhost:8080/transaction/MoneyDay/${day}`)
+            .then(response => {
+                const totalMoney = response.data;
+                document.getElementById("money").innerHTML = totalMoney;
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
         function showList() {
             let sst = "";
@@ -570,8 +590,8 @@
                 "                    <!-- small box -->\n" +
                 "                    <div class=\"small-box bg-yellow\">\n" +
                 "                        <div class=\"inner\">\n" +
-                "                            <h3>60</h3>\n" +
-                "                            <p>Người dùng mới</p>\n" +
+                "                            <h3 id='money'>60</h3>\n" +
+                "                            <p>Tổng tiền (Ngày)</p>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"icon\">\n" +
                 "                            <i class=\"fa fa-user\"></i>\n" +

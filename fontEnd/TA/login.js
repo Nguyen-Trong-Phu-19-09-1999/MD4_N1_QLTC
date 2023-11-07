@@ -10,7 +10,7 @@ function login() {
             localStorage.setItem('userId', id);
             localStorage.setItem('name', username);
             window.location.href = "../templates/all-admin-datalist.html";
-            if(data.name === admin) {
+            if(username === admin) {
                 document.getElementById('admin').innerHTML =`<div onclick="managerUser()">Manage user</div>`
             }
             loadUser();
