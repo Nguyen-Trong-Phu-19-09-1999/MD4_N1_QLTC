@@ -25,19 +25,19 @@ function login() {
             }
         });
 }
-function managerUser(){
-    axios.get('http://localhost:8080/users').then((res) =>{
+ async function managerUser(){
+    console.log('ok')
+ await   axios.get('http://localhost:8080/users').then((res) =>{
         let data = res.data;
         for (let i= 0; i< data.length; i++ ){
             str += `<div>${data[i].name}
             </div>`
-            if(localStorage.getItem('name') === admin){
+            if(localStorage.getItem('name') == 'admin'){
                 str += `<button onclick="deleteUser(${data[i].id})">Delete</button>`
             }
         }
         document.getElementById('body').innerHTML = str;
     });
-
 }
 function deleteUser(id) {
     axios.delete('http://localhost:8080/users/' + id).then(res => {
