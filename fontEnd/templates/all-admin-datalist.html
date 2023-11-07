@@ -399,7 +399,7 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="myModal2">
+    <div class="modal" id="myModalNguoiDung">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -426,6 +426,44 @@
                                 <td></td>
                                 <td></td>
                             </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form role="form" novalidate="novalidate">
+                        <div class="pull-left">
+                            <div class="form-group" form-inline="">
+                                <div class="btn-group">
+                                    <button type="button" class="btn" btn-default="" title="New" onclick="listDay()">
+                                        <i class="fa" fa-file-o=""></i> Ngày
+                                    </button>
+                                    <button type="date" class="btn" btn-default="" title="Delete" onclick="listMonth()">
+                                        <i class="fa" fa-trash-o=""></i> Tháng
+                                    </button>
+                                    <button type="button" class="btn" btn-default="" title="Edit" onclick="listYear()">
+                                        <i class="fa" fa-file-o=""></i> Năm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <table id=dataMoney class=table table-bordered table-striped table-hover dataTable>
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên Giao dịch</th>
+                                <th>Ngày</th>
+                                <th>Tiền</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                            </thead>
+                            <tbody id="datafillter" style="text-align: center">
                             </tbody>
                         </table>
                     </form>
@@ -519,6 +557,7 @@
             }
             document.getElementById("user_id").innerHTML = content1;
         })
+
         const currentDate = new Date();
         const day = currentDate.getDate();
         const month = currentDate.getMonth();
@@ -563,7 +602,7 @@
                 "                        <div class=\"icon\">\n" +
                 "                            <i class=\"ion ion-bag\"></i>\n" +
                 "                        </div>\n" +
-                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal2\">\n" +
+                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModalNguoiDung\">\n" +
                 "                            <button class=\"info\">Chi tiết</button>\n" +
                 "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
                 "                    </div>\n" +
@@ -590,8 +629,8 @@
                 "                    <!-- small box -->\n" +
                 "                    <div class=\"small-box bg-yellow\">\n" +
                 "                        <div class=\"inner\">\n" +
-                "                            <h3 id='money'>60</h3>\n" +
-                "                            <p>Tổng tiền (Ngày)</p>\n" +
+                "                            <h3 id='totalmoney'></h3>\n" +
+                "                            <p>Tổng tiền (Thu)</p>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"icon\">\n" +
                 "                            <i class=\"fa fa-user\"></i>\n" +
@@ -734,7 +773,7 @@
                 alert("Vui lòng chọn phần tử muốn xóa")
                 return;
             }
-            axios.get(`http://localhost:8080/transaction/${selectId}`).then((res) => {
+            axios.put(`http://localhost:8080/transaction/${selectId}`).then((res) => {
                 let data = res.data;
 
                 document.getElementById("transactionType_id").value = data.transactionType.id;

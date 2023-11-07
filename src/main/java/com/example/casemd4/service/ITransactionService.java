@@ -13,4 +13,6 @@ public interface ITransactionService<T> extends IGenerateService<Transactions>{
     Double getTotalMoneyByDay(@Param("day") Integer day);
 
     List<Transactions> find5TransactionFamilyExpenseNeares();
+
+//    Iterable<Transactions> getAllByDateAndTransactionType();
 }

@@ -51,4 +51,9 @@ public class TransactionService implements ITransactionService<Transactions> {
     public List<Transactions> find5TransactionFamilyExpenseNeares() {
         return iTransactionRepository.findTopByOrOrderByDateDateDesc();
     }
+
+//    @Override
+//    public Iterable<Transactions> getAllByDateAndTransactionType() {
+//        return iTransactionRepository.getAllByDateAndTransactionType();
+//    }
 }
