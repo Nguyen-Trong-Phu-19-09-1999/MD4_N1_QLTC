@@ -322,9 +322,9 @@
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-<!--                <li class="header">Home</li>-->
-<!--                <li id="admin-index"><a href="/home/"><i class="fa fa-dashboard"></i>-->
-<!--                    <span>Home</span></a></li>-->
+                <!--                <li class="header">Home</li>-->
+                <!--                <li id="admin-index"><a href="/home/"><i class="fa fa-dashboard"></i>-->
+                <!--                    <span>Home</span></a></li>-->
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-folder"></i> <span>Trang chủ</span>
@@ -399,6 +399,40 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="myModal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2"
+                        style="align-items: center;margin: auto;font-size: 13px">Thêm Mới</h5>
+                </div>
+                <div class="modal-body">
+                    <form role="form" novalidate="novalidate">
+                        <table id=dataList class=table table-bordered table-striped table-hover dataTable>
+                            <thead>
+                            <tr>
+                                <th>Tên hành động</th>
+                                <th>Tiền</th>
+                                <th>Ngày Gửi</th>
+                                <th>Ghi chú</th>
+                                <th>Người tạo</th>
+                            </tr>
+                            </thead>
+                            <tbody style="text-align: center">
+                           <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -467,6 +501,7 @@
                 liObj.addClass("active");
             }
         }
+
         axios.get("http://localhost:8080/api/transactionType").then((res) => {
             let data = res.data
             let content;
@@ -484,6 +519,7 @@
             }
             document.getElementById("user_id").innerHTML = content1;
         })
+
         function showList() {
             let sst = "";
             sst +=
@@ -501,13 +537,13 @@
                 "                    <!-- small box -->\n" +
                 "                    <div class=\"small-box bg-aqua\">\n" +
                 "                        <div class=\"inner\">\n" +
-                "                            <h3>60</h3>\n" +
-                "                            <p>Đơn hàng</p>\n" +
+                "                            <h3 id ='quantity'></h3>\n" +
+                "                            <p>Người dùng</p>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"icon\">\n" +
                 "                            <i class=\"ion ion-bag\"></i>\n" +
                 "                        </div>\n" +
-                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal1\">\n" +
+                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal2\">\n" +
                 "                            <button class=\"info\">Chi tiết</button>\n" +
                 "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
                 "                    </div>\n" +
@@ -920,7 +956,7 @@
                                 pointHighlightFill: "#fff",
                                 pointHighlightStroke: "rgba(220,220,220,1)",
                                 data: values
-                            },{
+                            }, {
                                 label: "Digital",
                                 fillColor: "rgba(210, 79, 54, 1)",
                                 strokeColor: "rgba(210, 23, 79, 1)",
@@ -928,7 +964,7 @@
                                 pointStrokeColor: "#c1c7d1",
                                 pointHighlightFill: "#fff",
                                 pointHighlightStroke: "rgba(220,220,220,1)",
-                                data: [1000,20000,30000,6000,10000]
+                                data: [1000, 20000, 30000, 6000, 10000]
                             }]
                         };
 
