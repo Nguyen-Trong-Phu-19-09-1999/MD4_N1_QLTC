@@ -1,7 +1,6 @@
 package com.example.casemd4.controller;
 
 import com.example.casemd4.model.TransactionType;
-import com.example.casemd4.model.User;
 import com.example.casemd4.service.Impl.TransactionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

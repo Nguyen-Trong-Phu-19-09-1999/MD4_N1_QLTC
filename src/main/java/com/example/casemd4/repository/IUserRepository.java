@@ -15,10 +15,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     List<User> findAllByUsernameAndPassword(String name, String password);
     User findByUsername(String username);
 
-//    Query q = em.createNativeQuery("select users.id, users.username, users.enabled from users order by id DESC limit 5");
-//    List<User> lastestUsers = q.getResultList();
 
-    @Query(value = "select users.id, users.username, users.enabled from users order by id DESC limit 5", nativeQuery = true)
-    List<User> findLatestUsers(User user);
 
 }

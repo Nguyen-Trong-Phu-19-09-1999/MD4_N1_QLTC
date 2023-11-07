@@ -28,7 +28,7 @@ import java.util.Set;
 @CrossOrigin("*")
 @RequestMapping("")
 public class UserController {
-//    @Autowired
+    //    @Autowired
 //    IUserRepository iUserRepository;
     @Autowired
     private Environment env;
@@ -131,10 +131,10 @@ public class UserController {
         if (!userService.isCorrectConfirmPassword(user)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Xác nhận mật khẩu không khớp. Vui lòng nhập lại.");
         }
-            Role role1 = roleService.findByName("ROLE_USER");
-            Set<Role> roles1 = new HashSet<>();
-            roles1.add(role1);
-            user.setRoles(roles1);
+        Role role1 = roleService.findByName("ROLE_USER");
+        Set<Role> roles1 = new HashSet<>();
+        roles1.add(role1);
+        user.setRoles(roles1);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setConfirmPassword(passwordEncoder.encode(user.getConfirmPassword()));
         userService.save(user);
@@ -142,6 +142,7 @@ public class UserController {
         // Registration successful
         return ResponseEntity.status(HttpStatus.CREATED).body("Đăng ký thành công.");
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
         try {
@@ -154,13 +155,13 @@ public class UserController {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             User currentUser = userService.findByUsername(user.getUsername());
             return ResponseEntity.ok(new JwtResponse(jwt, currentUser.getId(), userDetails.getUsername(), userDetails.getAuthorities()));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Sai thong tin dang nhap");
         }
     }
 
     @GetMapping("/hello")
-    public ResponseEntity<String> hello(){
+    public ResponseEntity<String> hello() {
         return new ResponseEntity("Hello World", HttpStatus.OK);
     }
 
@@ -182,13 +183,8 @@ public class UserController {
         user.setPassword(userOptional.get().getPassword());
         user.setRoles(userOptional.get().getRoles());
         user.setConfirmPassword(userOptional.get().getConfirmPassword());
-
         userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
-
-
-
 
 }
