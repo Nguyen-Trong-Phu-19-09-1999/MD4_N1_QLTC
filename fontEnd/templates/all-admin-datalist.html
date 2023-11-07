@@ -607,9 +607,9 @@
                 "                    <!-- small box -->\n" +
                 "                    <div class=\"small-box bg-green\">\n" +
                 "                        <div class=\"inner\">\n" +
-                "                            <h3>53<sup style=\"font-size: 20px\">%</sup></h3>\n" +
+                "                            <h3 id='transactiontypequantity'></h3>\n" +
                 "\n" +
-                "                            <p>Tỷ lệ chuyển đổi</p>\n" +
+                "                            <p>Loại giao dịch</p>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"icon\">\n" +
                 "                            <i class=\"fa fa-first-order\"></i>\n" +
@@ -680,7 +680,7 @@
                 "                            <button type=button id=delete-btn class=btn btn-default onclick=\"deleteList()\" title=Delete>\n" +
                 "                                <i class=fa fa-trash-o></i> Delete\n" +
                 "                            </button>\n" +
-                "                            <button type=button class=btn btn-default onclick=\"editList()\" data-bs-toggle=modal data-bs-target=#myModal2\n" +
+                "                            <button type=button class=btn btn-default onclick=\"editList()\" data-bs-toggle=modal data-bs-target=#myModal1\n" +
                 "                                    title=Edit><i class=fa fa-file-o></i> Edit\n" +
                 "                        </div>\n" +
                 "                    </div>\n" +
@@ -753,10 +753,15 @@
             <tr >
                  <td>${array[i].id}</td>
                  <td>${array[i].username}</td>
-                 <td>${array[i].enable}</td>
+                 <td>${array[i].enabled}</td>
             </tr>`
             }
             document.getElementById("abc").innerHTML = text;
+        })
+
+        axios.get("http://localhost:8080/api/transactionType").then((transtypetotal) => {
+            let array = transtypetotal.data;
+            document.getElementById("transactiontypequantity").innerHTML = array.length;
         })
 
 
