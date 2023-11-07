@@ -1,7 +1,8 @@
+let str ='';
 function loadUser(){
     let name = localStorage.getItem('name');
     if(name ==null){
-        document.getElementById('loaduser').innerHTML =``
+        document.getElementById('loaduser').innerHTML =''
 
     }else {
         document.getElementById('loaduser').innerHTML= `<div>

@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../static/css/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet" href="../static/css/slider.css">
     <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
+    <script src="../TA/localStorage.js"></script>
     <style>
         .modal-backdrop {
             background-color: rgba(0, 0, 0, 0.5) !important;
@@ -40,6 +41,7 @@
         }
     </style>
     <link rel="stylesheet" href="../static/css/jquery.dataTables.css">
+    <script src="../TA/localStorage.js"></script>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -289,7 +291,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Thay đổi mật khẩu</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+                                    <a href="#" class="btn btn-default btn-flat" onclick="logout()">Đăng xuất</a>
                                 </div>
                             </li>
                         </ul>

@@ -1,6 +1,7 @@
 package com.example.casemd4.repository;
 
 
+import com.example.casemd4.model.Role;
 import com.example.casemd4.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -11,4 +12,5 @@ import java.util.List;
 public interface IUserRepository extends JpaRepository<User, Long> {
     List<User> findByName(String name);
     List<User> findAllByNameAndPassword(String name, String password);
+    List<User> findByRole(Role role);
 }
