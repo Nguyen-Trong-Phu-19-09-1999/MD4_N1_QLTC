@@ -139,7 +139,6 @@ icheckbox_square-blue,
 	padding: 0;
 	width: 22px;
 	height: 22px;
-	background: url(avatar.png) no-repeat;
 	border: none;
 	cursor: pointer;
 }
@@ -184,7 +183,6 @@ only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min-device-pixel-ratio: 1.5) {
 	.icheckbox_square-blue,
 	.iradio_square-blue {
-		background-image: url(avatar.png);
 		-webkit-background-size: 240px 24px;
 		background-size: 240px 24px;
 	}

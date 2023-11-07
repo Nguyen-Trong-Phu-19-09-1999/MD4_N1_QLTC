@@ -38,6 +38,7 @@
         .password-field::after {
             content: '*';
         }
+
         button.btn {
             margin-right: 5px;
         }
@@ -530,22 +531,25 @@
 
 <script>
     let username = localStorage.getItem("name");
-    document.getElementById("usernamePlaceholder").innerText = username;
-    document.getElementById("user_name_sidebar").innerText = username;
-    document.getElementById("user_name_role").innerHTML = `${username} - Quản trị viên<small>Đăng nhập lần cuối: 11:20AM</small>`
-    $(document).ready(function () {
-        $(".select2").select2();
-        $(".textarea").wysihtml5({
-            locale: 'zh-CN'
+    if (username != null) {
+        document.getElementById("usernamePlaceholder").innerText = username;
+        document.getElementById("user_name_sidebar").innerText = username;
+        document.getElementById("user_name_role").innerHTML = `${username} - Quản trị viên<small>Đăng nhập lần cuối: 11:20AM</small>`
+        $(document).ready(function () {
+            $(".select2").select2();
+            $(".textarea").wysihtml5({
+                locale: 'zh-CN'
+            });
         });
-    });
 
-    function setSidebarActive(tagUri) {
-        let liObj = $("#" + tagUri);
-        if (liObj.length > 0) {
-            liObj.parent().parent().addClass("active");
-            liObj.addClass("active");
+        function setSidebarActive(tagUri) {
+            let liObj = $("#" + tagUri);
+            if (liObj.length > 0) {
+                liObj.parent().parent().addClass("active");
+                liObj.addClass("active");
+            }
         }
+<<<<<<< HEAD
     }
     function showList() {
         let sst = "";
@@ -680,6 +684,142 @@
         axios.get('http://localhost:8080/transaction').then(res => {
             let list = res.data;
             let str = '<thead>\
+=======
+
+        function showList() {
+            let sst = "";
+            sst += " <section class=\"content-header\">\n" +
+                "            <h1>\n" +
+                "                Home\n" +
+                "                <small>Information</small>\n" +
+                "            </h1>\n" +
+                "        </section>\n" +
+                "        <!-- content-header /-->\n" +
+                "        <!-- content -->\n" +
+                "        <section class=\"content\">\n" +
+                "            <div class=\"row\">\n" +
+                "                <div class=\"col-lg-3 col-xs-6\">\n" +
+                "                    <!-- small box -->\n" +
+                "                    <div class=\"small-box bg-aqua\">\n" +
+                "                        <div class=\"inner\">\n" +
+                "                            <h3>60</h3>\n" +
+                "                            <p>Đơn hàng</p>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"icon\">\n" +
+                "                            <i class=\"ion ion-bag\"></i>\n" +
+                "                        </div>\n" +
+                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal1\">\n" +
+                "                            <button class=\"info\">Chi tiết</button>\n" +
+                "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
+                "                    </div>\n" +
+                "                </div>\n" +
+                "                <!-- ./col -->\n" +
+                "                <div class=\"col-lg-3 col-xs-6\">\n" +
+                "                    <!-- small box -->\n" +
+                "                    <div class=\"small-box bg-green\">\n" +
+                "                        <div class=\"inner\">\n" +
+                "                            <h3>53<sup style=\"font-size: 20px\">%</sup></h3>\n" +
+                "\n" +
+                "                            <p>Tỷ lệ chuyển đổi</p>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"icon\">\n" +
+                "                            <i class=\"fa fa-first-order\"></i>\n" +
+                "                        </div>\n" +
+                "                        <a class=\"small-box-footer\">\n" +
+                "                            <button class=\"info\" id=\"btn-modal\">Chi tiết</button>\n" +
+                "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
+                "                    </div>\n" +
+                "                </div>\n" +
+                "                <!-- ./col -->\n" +
+                "                <div class=\"col-lg-3 col-xs-6\">\n" +
+                "                    <!-- small box -->\n" +
+                "                    <div class=\"small-box bg-yellow\">\n" +
+                "                        <div class=\"inner\">\n" +
+                "                            <h3>60</h3>\n" +
+                "                            <p>Người dùng mới</p>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"icon\">\n" +
+                "                            <i class=\"fa fa-user\"></i>\n" +
+                "                        </div>\n" +
+                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal3\">\n" +
+                "                            <button class=\"info\" id=\"btn-modalUser\">Chi tiết</button>\n" +
+                "                            <i class=\"fa fa-arrow-circle-right\"></i>\n" +
+                "                        </a>\n" +
+                "                    </div>\n" +
+                "                </div>\n" +
+                "                <!-- ./col -->\n" +
+                "                <div class=\"col-lg-3 col-xs-6\">\n" +
+                "                    <!-- small box -->\n" +
+                "                    <div class=\"small-box bg-red\">\n" +
+                "                        <div class=\"inner\">\n" +
+                "                            <h3>60</h3>\n" +
+                "                            <p>Công việc</p>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"icon\">\n" +
+                "                            <i class=\"fa fa-calendar\"></i>\n" +
+                "                        </div>\n" +
+                "                        <a class=\"small-box-footer\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal2\">\n" +
+                "                            <button class=\"info\">Chi tiết</button>\n" +
+                "                            <i class=\"fa fa-arrow-circle-right\"></i></a>\n" +
+                "                    </div>\n" +
+                "                </div>\n" +
+                "                <!-- ./col -->\n" +
+                "            </div>\n" +
+                "            <!-- /.row -->\n" +
+                "        </section>"
+            sst += "<section class=content-header>\n" +
+                "    <h1>\n" +
+                "        Data Transactions\n" +
+                "        <small>List</small>\n" +
+                "    </h1>\n" +
+                "    <ol class=breadcrumb>\n" +
+                "        <li><a href=#><i class=fa fa-dashboard></i> Home</a></li>\n" +
+                "        <li><a href=#>Trang chủ</a></li>\n" +
+                "        <li class=active>Data List</li>\n" +
+                "    </ol>\n" +
+                "</section>\n" +
+                "<section class=content>\n" +
+                "    <div class=box box-primary>\n" +
+                "        <div class=box-body>\n" +
+                "            <div class=table-box>\n" +
+                "                <div class=pull-left>\n" +
+                "                    <div class=form-group form-inline>\n" +
+                "                        <div class=btn-group>\n" +
+                "                            <button type=button class=btn btn-default data-bs-toggle=modal data-bs-target=#myModal1\n" +
+                "                                    title=New><i class=fa fa-file-o></i> New\n" +
+                "                            </button>\n" +
+                "                            <button type=button id=delete-btn class=btn btn-default onclick=\"deleteList()\" title=Delete>\n" +
+                "                                <i class=fa fa-trash-o></i> Delete\n" +
+                "                            </button>\n" +
+                "                            <button type=button class=btn btn-default onclick=\"editList()\" data-bs-toggle=modal data-bs-target=#myModal2\n" +
+                "                                    title=Edit><i class=fa fa-file-o></i> Edit\n" +
+                "                        </div>\n" +
+                "                    </div>\n" +
+                "                </div>\n" +
+                "                <table id=dataList class=table table-bordered table-striped table-hover dataTable>\n" +
+                "                </table>\n" +
+                "            </div>\n" +
+                "        </div>\n" +
+                "        <div class=box-footer>\n" +
+                "            <div class=pull-left>\n" +
+                "                <div class=form-group form-inline>\n" +
+                "                    <select class=form-control>\n" +
+                "                        <option>1</option>\n" +
+                "                        <option>2</option>\n" +
+                "                        <option>3</option>\n" +
+                "                        <option>4</option>\n" +
+                "                        <option>5</option>\n" +
+                "                    </select>\n" +
+                "                </div>\n" +
+                "            </div>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "</section>"
+            document.getElementById("content").innerHTML = sst;
+            axios.get('http://localhost:8080/transaction').then(res => {
+                let list = res.data;
+                let str = '<thead>\
+>>>>>>> 3bc5bebab9b5b2d64d260a29cea7d92a37dd7cf0
                     <tr>\
                         <th></th>\
                         <th>Tên hành động</th>\
@@ -691,8 +831,8 @@
                 </thead>\
                 <tbody style="text-align: center">';
 
-            for (let i = 0; i < list.length; i++) {
-                str += `<tr>\
+                for (let i = 0; i < list.length; i++) {
+                    str += `<tr>\
                     <td><input type="checkbox" value="${list[i].id}"></td>\
                     <td>${list[i].transactionType.name}</td>\
                     <td>${list[i].money}</td>\
@@ -700,54 +840,57 @@
                     <td>${list[i].note}</td>\
                     <td>${list[i].user.name}</td>\
                 </tr>`;
-            }
+                }
 
-            str += '</tbody>';
-            document.getElementById("dataList").innerHTML = str;
+                str += '</tbody>';
+                document.getElementById("dataList").innerHTML = str;
 
-            $(document).ready(function () {
-                $("#dataList").dataTable();
+                $(document).ready(function () {
+                    $("#dataList").dataTable();
+                });
             });
-        });
-    }
-    function addList(){
-        let data = {
-            transactionType:{
-                id: document.getElementById("transactionType_id").value,
-            },
-            date:document.getElementById("date").value,
-            money:document.getElementById("money").value,
-            note:document.getElementById("note").value,
-            user:{
-                id:document.getElementById("user_id").value,
+        }
+
+        function addList() {
+            let data = {
+                transactionType: {
+                    id: document.getElementById("transactionType_id").value,
+                },
+                date: document.getElementById("date").value,
+                money: document.getElementById("money").value,
+                note: document.getElementById("note").value,
+                user: {
+                    id: document.getElementById("user_id").value,
+                }
             }
+
+            axios.post("http://localhost:8080/transaction", data).then(() => {
+            }).catch((e) => {
+                alert("loi roi")
+                console.log(e.message)
+            })
         }
 
-        axios.post("http://localhost:8080/transaction" ,data).then(() =>{
-        }).catch((e)=>{
-            alert("loi roi")
-            console.log(e.message)
-        })
-    }
-    showList();
-    function editList(){
-        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
-        let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
-        if (selectId.length === 0){
-            alert("Vui lòng chọn phần tử muốn xóa")
-            return;
-        }
-        axios.get(`http://localhost:8080/transaction/${selectId}`).then((res) =>{
-            let data = res.data;
+        showList();
 
-            document.getElementById("transactionType_id").value = data.transactionType.id;
-            document.getElementById("money").value = data.money;
-            document.getElementById("date").value = data.date;
-            document.getElementById("note").value = data.note;
-            document.getElementById("user_id").value = data.user.id;
+        function editList() {
+            let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+            let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+            if (selectId.length === 0) {
+                alert("Vui lòng chọn phần tử muốn xóa")
+                return;
+            }
+            axios.get(`http://localhost:8080/transaction/${selectId}`).then((res) => {
+                let data = res.data;
 
-            let ax =``
-            ax += `<div class="modal" id="myModal2">
+                document.getElementById("transactionType_id").value = data.transactionType.id;
+                document.getElementById("money").value = data.money;
+                document.getElementById("date").value = data.date;
+                document.getElementById("note").value = data.note;
+                document.getElementById("user_id").value = data.user.id;
+
+                let ax = ``
+                ax += `<div class="modal" id="myModal2">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -785,6 +928,7 @@
                     </div>
                 </div>
             </div>`
+<<<<<<< HEAD
             document.body.insertAdjacentHTML('beforeend', ax);
             $('#myModal2').modal('show');
         }).catch((e) =>{
@@ -829,344 +973,280 @@
 
                 // Refresh the list after the update
                 // showList();
+=======
+                document.body.insertAdjacentHTML('beforeend', ax);
+                $('#myModal2').modal('show');
+            }).catch((e) => {
+                console.log(selectId)
+                console.error(e)
+>>>>>>> 3bc5bebab9b5b2d64d260a29cea7d92a37dd7cf0
             })
-            .catch((e) => {
-                console.error(e);
-            });
-    }
-    function deleteList(){
-        let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
-        let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
-
-        if (selectId.length === 0){
-            alert("Vui lòng chọn phần tử muốn xóa")
-            return;
         }
-        axios.delete(`http://localhost:8080/transaction/${selectId}`,{}).then((res) =>{
-            console.log(res.data);
-            showList();
-        }).catch(() => {
-            alert(selectId)
-            alert('loi delete')
+
+        function updateList(selectId) {
+            let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+            selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+            let updatedData = {
+                transactionType: {
+                    id: document.getElementById("transactionType_id_edit").value,
+                },
+                money: document.getElementById("money_edit").value,
+                date: document.getElementById("date_edit").value,
+                note: document.getElementById("note_edit").value,
+                user: {
+                    id: 1,
+                },
+            };
+
+            axios.put(`http://localhost:8080/transaction/${selectId}`, updatedData)
+                .then((res) => {
+                    alert("abc")
+                    // Handle success if needed
+                    console.log(res.data);
+
+                    // Close the modal after successful update
+                    $('#myModal2').modal('hide');
+
+                    // Refresh the list after the update
+                    // showList();
+                })
+                .catch((e) => {
+                    console.error(e);
+                });
+        }
+
+        function deleteList() {
+            let selectCheckBox = document.querySelectorAll('#dataList tbody input[type = "checkbox"]:checked');
+            let selectId = Array.from(selectCheckBox).map(checkbox => checkbox.value);
+
+            if (selectId.length === 0) {
+                alert("Vui lòng chọn phần tử muốn xóa")
+                return;
+            }
+            axios.delete(`http://localhost:8080/transaction/${selectId}`, {}).then((res) => {
+                console.log(res.data);
+                showList();
+            }).catch(() => {
+                alert(selectId)
+                alert('loi delete')
+            })
+
+        }
+
+        axios.get("http://localhost:8080/api/transactionType").then((res) => {
+            let data = res.data
+            let content;
+            for (let i = 0; i < data.length; i++) {
+                content += `<option value=${data[i].id}>${data[i].name}</option>`
+            }
+            document.getElementById("transactionType_id").innerHTML = content;
+        })
+        axios.get("http://localhost:8080/users").then((res) => {
+            let data1 = res.data
+            let content1;
+            for (let i = 0; i < data1.length; i++) {
+                content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
+            }
+            document.getElementById("user_id").innerHTML = content1;
         })
 
-    }
-    axios.get("http://localhost:8080/api/transactionType").then((res)=>{
-        let data = res.data
-        let content;
-        for (let i = 0; i < data.length ; i++) {
-            content += `<option value=${data[i].id}>${data[i].name}</option>`
+        function showChart() {
+            let scc = "";
+            scc += '<section class="content-header">\n' +
+                '                <h1>\n' +
+                '                    ChartJS\n' +
+                '                    <small>Preview sample</small>\n' +
+                '                </h1>\n' +
+                '                <ol class="breadcrumb">\n' +
+                '                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>\n' +
+                '                    <li><a href="#">Charts</a></li>\n' +
+                '                    <li class="active">ChartJS</li>\n' +
+                '                </ol>\n' +
+                '            </section>\n' +
+                '\n' +
+                '            <!-- Main content -->\n' +
+                '            <section class="content">\n' +
+                '                <div class="row">\n' +
+                '                    <div class="col-md-6">\n' +
+                '                        <!-- AREA CHART -->\n' +
+                '                        <div class="box box-primary">\n' +
+                '                            <div class="box-header with-border">\n' +
+                '                                <h3 class="box-title">Area Chart</h3>\n' +
+                '\n' +
+                '                                <div class="box-tools pull-right">\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
+                '                </button>\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <div class="box-body">\n' +
+                '                                <div class="chart">\n' +
+                '                                    <canvas id="areaChart" style="height:250px"></canvas>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <!-- /.box-body -->\n' +
+                '                        </div>\n' +
+                '                        <!-- /.box -->\n' +
+                '\n' +
+                '                        <!-- DONUT CHART -->\n' +
+                '                        <div class="box box-danger">\n' +
+                '                            <div class="box-header with-border">\n' +
+                '                                <h3 class="box-title">Donut Chart</h3>\n' +
+                '\n' +
+                '                                <div class="box-tools pull-right">\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
+                '                </button>\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <div class="box-body">\n' +
+                '                                <canvas id="pieChart" style="height:250px"></canvas>\n' +
+                '                            </div>\n' +
+                '                            <!-- /.box-body -->\n' +
+                '                        </div>\n' +
+                '                        <!-- /.box -->\n' +
+                '\n' +
+                '                    </div>\n' +
+                '                    <!-- /.col (LEFT) -->\n' +
+                '                    <div class="col-md-6">\n' +
+                '                        <!-- LINE CHART -->\n' +
+                '                        <div class="box box-info">\n' +
+                '                            <div class="box-header with-border">\n' +
+                '                                <h3 class="box-title">Line Chart</h3>\n' +
+                '\n' +
+                '                                <div class="box-tools pull-right">\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
+                '                </button>\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <div class="box-body">\n' +
+                '                                <div class="chart">\n' +
+                '                                    <canvas id="lineChart" style="height:250px"></canvas>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <!-- /.box-body -->\n' +
+                '                        </div>\n' +
+                '                        <!-- /.box -->\n' +
+                '\n' +
+                '                        <!-- BAR CHART -->\n' +
+                '                        <div class="box box-success">\n' +
+                '                            <div class="box-header with-border">\n' +
+                '                                <h3 class="box-title">Bar Chart</h3>\n' +
+                '\n' +
+                '                                <div class="box-tools pull-right">\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
+                '                </button>\n' +
+                '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <div class="box-body">\n' +
+                '                                <div class="chart">\n' +
+                '                                    <canvas id="barChart" style="height:230px"></canvas>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                            <!-- /.box-body -->\n' +
+                '                        </div>\n' +
+                '                        <!-- /.box -->\n' +
+                '\n' +
+                '                    </div>\n' +
+                '                    <!-- /.col (RIGHT) -->\n' +
+                '                </div>\n' +
+                '                <!-- /.row -->\n' +
+                '\n' +
+                '            </section>\n'
+            document.getElementById("content").innerHTML = scc;
+
+            $(function () {
+                // Get context with jQuery - using jQuery's .get() method.
+                let areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+                // This will get the first returned node in the jQuery collection.
+                let areaChart = new Chart(areaChartCanvas);
+
+                axios.get('http://localhost:8080/transaction/chart')
+                    .then(function (response) {
+                        let transactionDataList = response.data;
+
+                        let labels = transactionDataList.map(function (item) {
+                            return item.date;
+                        });
+
+                        let values = transactionDataList.map(function (item) {
+                            return item.money;
+                        });
+
+                        let areaChartData = {
+                            labels: labels,
+                            datasets: [{
+                                label: "Transactions",
+                                fillColor: "rgba(210, 214, 222, 1)",
+                                strokeColor: "rgba(210, 214, 222, 1)",
+                                pointColor: "rgba(210, 214, 222, 1)",
+                                pointStrokeColor: "#c1c7d1",
+                                pointHighlightFill: "#fff",
+                                pointHighlightStroke: "rgba(220,220,220,1)",
+                                data: values
+                            },{
+                                label: "Digital",
+                                fillColor: "rgba(210, 79, 54, 1)",
+                                strokeColor: "rgba(210, 23, 79, 1)",
+                                pointColor: "rgba(210, 12, 76, 1)",
+                                pointStrokeColor: "#c1c7d1",
+                                pointHighlightFill: "#fff",
+                                pointHighlightStroke: "rgba(220,220,220,1)",
+                                data: values/10
+                            }]
+                        };
+
+                        let areaChartOptions = {
+                            //Boolean - If we should show the scale at all
+                            showScale: true,
+                            //Boolean - Whether grid lines are shown across the chart
+                            scaleShowGridLines: false,
+                            //String - Colour of the grid lines
+                            scaleGridLineColor: "rgba(0,0,0,.05)",
+                            //Number - Width of the grid lines
+                            scaleGridLineWidth: 1,
+                            //Boolean - Whether to show horizontal lines (except X axis)
+                            scaleShowHorizontalLines: true,
+                            //Boolean - Whether to show vertical lines (except Y axis)
+                            scaleShowVerticalLines: true,
+                            //Boolean - Whether the line is curved between points
+                            bezierCurve: true,
+                            //Number - Tension of the bezier curve between points
+                            bezierCurveTension: 0.3,
+                            //Boolean - Whether to show a dot for each point
+                            pointDot: false,
+                            //Number - Radius of each point dot in pixels
+                            pointDotRadius: 4,
+                            //Number - Pixel width of point dot stroke
+                            pointDotStrokeWidth: 1,
+                            //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+                            pointHitDetectionRadius: 20,
+                            //Boolean - Whether to show a stroke for datasets
+                            datasetStroke: true,
+                            //Number - Pixel width of dataset stroke
+                            datasetStrokeWidth: 2,
+                            //Boolean - Whether to fill the dataset with a color
+                            datasetFill: true,
+                            //String - A legend template
+                            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (let i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                            //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+                            maintainAspectRatio: true,
+                            //Boolean - whether to make the chart responsive to window resizing
+                            responsive: true
+                        };
+
+
+                        areaChart.Line(areaChartData, areaChartOptions);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            });
         }
-        document.getElementById("transactionType_id").innerHTML = content;
-    })
-    axios.get("http://localhost:8080/users").then((res)=>{
-        let data1 = res.data
-        let content1;
-        for (let i = 0; i < data1.length ; i++) {
-            content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
-        }
-        document.getElementById("user_id").innerHTML = content1;
-    })
-    function showChart(){
-        let scc = "";
-        scc += '<section class="content-header">\n' +
-            '                <h1>\n' +
-            '                    ChartJS\n' +
-            '                    <small>Preview sample</small>\n' +
-            '                </h1>\n' +
-            '                <ol class="breadcrumb">\n' +
-            '                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>\n' +
-            '                    <li><a href="#">Charts</a></li>\n' +
-            '                    <li class="active">ChartJS</li>\n' +
-            '                </ol>\n' +
-            '            </section>\n' +
-            '\n' +
-            '            <!-- Main content -->\n' +
-            '            <section class="content">\n' +
-            '                <div class="row">\n' +
-            '                    <div class="col-md-6">\n' +
-            '                        <!-- AREA CHART -->\n' +
-            '                        <div class="box box-primary">\n' +
-            '                            <div class="box-header with-border">\n' +
-            '                                <h3 class="box-title">Area Chart</h3>\n' +
-            '\n' +
-            '                                <div class="box-tools pull-right">\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
-            '                </button>\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <div class="box-body">\n' +
-            '                                <div class="chart">\n' +
-            '                                    <canvas id="areaChart" style="height:250px"></canvas>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <!-- /.box-body -->\n' +
-            '                        </div>\n' +
-            '                        <!-- /.box -->\n' +
-            '\n' +
-            '                        <!-- DONUT CHART -->\n' +
-            '                        <div class="box box-danger">\n' +
-            '                            <div class="box-header with-border">\n' +
-            '                                <h3 class="box-title">Donut Chart</h3>\n' +
-            '\n' +
-            '                                <div class="box-tools pull-right">\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
-            '                </button>\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <div class="box-body">\n' +
-            '                                <canvas id="pieChart" style="height:250px"></canvas>\n' +
-            '                            </div>\n' +
-            '                            <!-- /.box-body -->\n' +
-            '                        </div>\n' +
-            '                        <!-- /.box -->\n' +
-            '\n' +
-            '                    </div>\n' +
-            '                    <!-- /.col (LEFT) -->\n' +
-            '                    <div class="col-md-6">\n' +
-            '                        <!-- LINE CHART -->\n' +
-            '                        <div class="box box-info">\n' +
-            '                            <div class="box-header with-border">\n' +
-            '                                <h3 class="box-title">Line Chart</h3>\n' +
-            '\n' +
-            '                                <div class="box-tools pull-right">\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
-            '                </button>\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <div class="box-body">\n' +
-            '                                <div class="chart">\n' +
-            '                                    <canvas id="lineChart" style="height:250px"></canvas>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <!-- /.box-body -->\n' +
-            '                        </div>\n' +
-            '                        <!-- /.box -->\n' +
-            '\n' +
-            '                        <!-- BAR CHART -->\n' +
-            '                        <div class="box box-success">\n' +
-            '                            <div class="box-header with-border">\n' +
-            '                                <h3 class="box-title">Bar Chart</h3>\n' +
-            '\n' +
-            '                                <div class="box-tools pull-right">\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
-            '                </button>\n' +
-            '                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <div class="box-body">\n' +
-            '                                <div class="chart">\n' +
-            '                                    <canvas id="barChart" style="height:230px"></canvas>\n' +
-            '                                </div>\n' +
-            '                            </div>\n' +
-            '                            <!-- /.box-body -->\n' +
-            '                        </div>\n' +
-            '                        <!-- /.box -->\n' +
-            '\n' +
-            '                    </div>\n' +
-            '                    <!-- /.col (RIGHT) -->\n' +
-            '                </div>\n' +
-            '                <!-- /.row -->\n' +
-            '\n' +
-            '            </section>\n'
-        document.getElementById("content").innerHTML = scc;
-
-        $(function() {
-            // Get context with jQuery - using jQuery's .get() method.
-            let areaChartCanvas = $("#areaChart").get(0).getContext("2d");
-            // This will get the first returned node in the jQuery collection.
-            let areaChart = new Chart(areaChartCanvas);
-
-            let areaChartData = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                    label: "Electronics",
-                    fillColor: "rgba(210, 214, 222, 1)",
-                    strokeColor: "rgba(210, 214, 222, 1)",
-                    pointColor: "rgba(210, 214, 222, 1)",
-                    pointStrokeColor: "#c1c7d1",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                    {
-                        label: "Digital Goods",
-                        fillColor: "rgba(60,141,188,0.9)",
-                        strokeColor: "rgba(60,141,188,0.8)",
-                        pointColor: "#3b8bba",
-                        pointStrokeColor: "rgba(60,141,188,1)",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(60,141,188,1)",
-                        data: [28, 48, 40, 19, 86, 27, 90]
-                    }
-                ]
-            };
-
-            let areaChartOptions = {
-                //Boolean - If we should show the scale at all
-                showScale: true,
-                //Boolean - Whether grid lines are shown across the chart
-                scaleShowGridLines: false,
-                //String - Colour of the grid lines
-                scaleGridLineColor: "rgba(0,0,0,.05)",
-                //Number - Width of the grid lines
-                scaleGridLineWidth: 1,
-                //Boolean - Whether to show horizontal lines (except X axis)
-                scaleShowHorizontalLines: true,
-                //Boolean - Whether to show vertical lines (except Y axis)
-                scaleShowVerticalLines: true,
-                //Boolean - Whether the line is curved between points
-                bezierCurve: true,
-                //Number - Tension of the bezier curve between points
-                bezierCurveTension: 0.3,
-                //Boolean - Whether to show a dot for each point
-                pointDot: false,
-                //Number - Radius of each point dot in pixels
-                pointDotRadius: 4,
-                //Number - Pixel width of point dot stroke
-                pointDotStrokeWidth: 1,
-                //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-                pointHitDetectionRadius: 20,
-                //Boolean - Whether to show a stroke for datasets
-                datasetStroke: true,
-                //Number - Pixel width of dataset stroke
-                datasetStrokeWidth: 2,
-                //Boolean - Whether to fill the dataset with a color
-                datasetFill: true,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (let i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-                //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-                maintainAspectRatio: true,
-                //Boolean - whether to make the chart responsive to window resizing
-                responsive: true
-            };
-
-            //Create the line chart
-            areaChart.Line(areaChartData, areaChartOptions);
-
-            //-------------
-            //- LINE CHART -
-            //--------------
-            let lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-            let lineChart = new Chart(lineChartCanvas);
-            let lineChartOptions = areaChartOptions;
-            lineChartOptions.datasetFill = false;
-            lineChart.Line(areaChartData, lineChartOptions);
-
-            //-------------
-            //- PIE CHART -
-            //-------------
-            // Get context with jQuery - using jQuery's .get() method.
-            let pieChartCanvas = $("#pieChart").get(0).getContext("2d");
-            let pieChart = new Chart(pieChartCanvas);
-            let PieData = [{
-                value: 700,
-                color: "#f56954",
-                highlight: "#f56954",
-                label: "Chrome"
-            },
-                {
-                    value: 500,
-                    color: "#00a65a",
-                    highlight: "#00a65a",
-                    label: "IE"
-                },
-                {
-                    value: 400,
-                    color: "#f39c12",
-                    highlight: "#f39c12",
-                    label: "FireFox"
-                },
-                {
-                    value: 600,
-                    color: "#00c0ef",
-                    highlight: "#00c0ef",
-                    label: "Safari"
-                },
-                {
-                    value: 300,
-                    color: "#3c8dbc",
-                    highlight: "#3c8dbc",
-                    label: "Opera"
-                },
-                {
-                    value: 100,
-                    color: "#d2d6de",
-                    highlight: "#d2d6de",
-                    label: "Navigator"
-                }
-            ];
-            let pieOptions = {
-                //Boolean - Whether we should show a stroke on each segment
-                segmentShowStroke: true,
-                //String - The colour of each segment stroke
-                segmentStrokeColor: "#fff",
-                //Number - The width of each segment stroke
-                segmentStrokeWidth: 2,
-                //Number - The percentage of the chart that we cut out of the middle
-                percentageInnerCutout: 50, // This is 0 for Pie charts
-                //Number - Amount of animation steps
-                animationSteps: 100,
-                //String - Animation easing effect
-                animationEasing: "easeOutBounce",
-                //Boolean - Whether we animate the rotation of the Doughnut
-                animateRotate: true,
-                //Boolean - Whether we animate scaling the Doughnut from the centre
-                animateScale: false,
-                //Boolean - whether to make the chart responsive to window resizing
-                responsive: true,
-                // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-                maintainAspectRatio: true,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (let i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
-            };
-            //Create pie or douhnut chart
-            // You can switch between pie and douhnut using the method below.
-            pieChart.Doughnut(PieData, pieOptions);
-
-            //-------------
-            //- BAR CHART -
-            //-------------
-            let barChartCanvas = $("#barChart").get(0).getContext("2d");
-            let barChart = new Chart(barChartCanvas);
-            let barChartData = areaChartData;
-            barChartData.datasets[1].fillColor = "#00a65a";
-            barChartData.datasets[1].strokeColor = "#00a65a";
-            barChartData.datasets[1].pointColor = "#00a65a";
-            let barChartOptions = {
-                //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-                scaleBeginAtZero: true,
-                //Boolean - Whether grid lines are shown across the chart
-                scaleShowGridLines: true,
-                //String - Colour of the grid lines
-                scaleGridLineColor: "rgba(0,0,0,.05)",
-                //Number - Width of the grid lines
-                scaleGridLineWidth: 1,
-                //Boolean - Whether to show horizontal lines (except X axis)
-                scaleShowHorizontalLines: true,
-                //Boolean - Whether to show vertical lines (except Y axis)
-                scaleShowVerticalLines: true,
-                //Boolean - If there is a stroke on each bar
-                barShowStroke: true,
-                //Number - Pixel width of the bar stroke
-                barStrokeWidth: 2,
-                //Number - Spacing between each of the X value sets
-                barValueSpacing: 5,
-                //Number - Spacing between data sets within X values
-                barDatasetSpacing: 1,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (let i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-                //Boolean - whether to make the chart responsive
-                responsive: true,
-                maintainAspectRatio: true
-            };
-
-            barChartOptions.datasetFill = false;
-            barChart.Bar(barChartData, barChartOptions);
-        });
+    } else {
+        window.location.href = "../templates/all-admin-login.html";
     }
 </script>
 <script src="../static/js/Chart.min.js"></script>

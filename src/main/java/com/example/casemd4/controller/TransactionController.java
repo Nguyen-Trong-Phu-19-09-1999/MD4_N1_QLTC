@@ -1,5 +1,6 @@
 package com.example.casemd4.controller;
 
+import com.example.casemd4.model.TransactionData;
 import com.example.casemd4.model.Transactions;
 import com.example.casemd4.service.Impl.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -53,4 +56,24 @@ public class TransactionController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    @GetMapping("/chart-data")
+    public List<Transactions> getData(){
+        Iterable<Transactions> data = transactionService.findAll();
+        return (List<Transactions>) data;
+    }
+    @GetMapping("/chart")
+    public List<TransactionData> getTransactionData() {
+        Iterable<Transactions> transactions = transactionService.findAll();
+        List<TransactionData> transactionDataList = new ArrayList<>();
+
+        for (Transactions transaction : transactions) {
+            TransactionData transactionData = new TransactionData();
+            transactionData.setDate(transaction.getDate());
+            transactionData.setMoney(transaction.getMoney());
+            transactionDataList.add(transactionData);
+        }
+
+        return transactionDataList;
+    }
+
 }
