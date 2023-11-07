@@ -18,7 +18,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: "Microsoft YaHei", tahoma, "Hiragino Sans GB", "\\5b8bä½“", 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Microsoft YaHei", tahoma, "Hiragino Sans GB", "\\5b8bÃ¤Â½â€œ", 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
@@ -467,8 +467,8 @@ a:focus {
 }
 .user-panel > .image > img {
   /* width: 100%; */
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 .user-panel > .info {

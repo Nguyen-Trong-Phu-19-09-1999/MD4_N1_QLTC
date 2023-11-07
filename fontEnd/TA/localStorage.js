@@ -12,5 +12,7 @@ function loadUser(){
 }
 function logout(){
     localStorage.removeItem('name');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('username');
     loadUser();
 }

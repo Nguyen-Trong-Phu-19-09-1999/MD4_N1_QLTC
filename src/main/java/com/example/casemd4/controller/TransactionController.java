@@ -75,5 +75,4 @@ public class TransactionController {
 
         return transactionDataList;
     }
-
 }

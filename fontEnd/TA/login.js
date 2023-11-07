@@ -6,7 +6,9 @@ function login() {
 
     axios.post("http://localhost:8080/login", data)
         .then((response) => {
-            localStorage.setItem('name', data.username);
+            const { id, username } = response.data;
+            localStorage.setItem('userId', id);
+            localStorage.setItem('name', username);
             window.location.href = "../templates/all-admin-datalist.html";
             loadUser();
         })

@@ -322,9 +322,9 @@
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">Home</li>
-                <li id="admin-index"><a href="/home/"><i class="fa fa-dashboard"></i>
-                    <span>Home</span></a></li>
+<!--                <li class="header">Home</li>-->
+<!--                <li id="admin-index"><a href="/home/"><i class="fa fa-dashboard"></i>-->
+<!--                    <span>Home</span></a></li>-->
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-folder"></i> <span>Trang chủ</span>
@@ -346,58 +346,6 @@
                                 <li><a onclick="showChart()"><i class="fa fa-area-chart"></i>Chart</a></li>
                             </ul>
                         </li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-pie-chart"></i> <span>Biểu đồ</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="charts-chartjs">
-                            <a href="all-charts-chartjs.html">
-                                <i class="fa fa-circle-o"></i> ChartJS
-                            </a>
-                        </li>
-
-                        <li id="charts-morris">
-                            <a href="all-charts-morris.html">
-                                <i class="fa fa-circle-o"></i> Morris Charts
-                            </a>
-                        </li>
-
-                        <li id="charts-flot">
-                            <a href="all-charts-flot.html">
-                                <i class="fa fa-circle-o"></i> Flot Charts
-                            </a>
-                        </li>
-
-                        <li id="charts-inline">
-                            <a href="all-charts-inline.html">
-                                <i class="fa fa-circle-o"></i> Inline Charts
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cogs"></i> <span>Quản trị hệ thống</span>
-                        <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                    </a>
-                    <ul class="treeview-menu">
-
-                        <li id="system-setting">
-                            <a href="all-system-setting-edit.html">
-                                <i class="fa fa-circle-o"></i> Cài đặt hệ thống
-                            </a>
-                        </li>
-
                     </ul>
                 </li>
             </ul>
@@ -519,10 +467,27 @@
                 liObj.addClass("active");
             }
         }
+        axios.get("http://localhost:8080/api/transactionType").then((res) => {
+            let data = res.data
+            let content;
+            for (let i = 0; i < data.length; i++) {
+                content += `<option value=${data[i].id}>${data[i].name}</option>`
+            }
+            document.getElementById("transactionType_id").innerHTML = content;
+        })
 
+        axios.get("http://localhost:8080/users").then((res) => {
+            let data1 = res.data
+            let content1;
+            for (let i = 0; i < data1.length; i++) {
+                content1 += `<option value=${data1[i].id}>${data1[i].username}</option>`
+            }
+            document.getElementById("user_id").innerHTML = content1;
+        })
         function showList() {
             let sst = "";
-            sst += " <section class=\"content-header\">\n" +
+            sst +=
+                " <section class=\"content-header\">\n" +
                 "            <h1>\n" +
                 "                Home\n" +
                 "                <small>Information</small>\n" +
@@ -671,7 +636,7 @@
                     <td>${list[i].money}</td>\
                     <td>${list[i].date}</td>\
                     <td>${list[i].note}</td>\
-                    <td>${list[i].user.name}</td>\
+                    <td>${list[i].user.username}</td>\
                 </tr>`;
                 }
 
@@ -819,23 +784,6 @@
 
         }
 
-        axios.get("http://localhost:8080/api/transactionType").then((res) => {
-            let data = res.data
-            let content;
-            for (let i = 0; i < data.length; i++) {
-                content += `<option value=${data[i].id}>${data[i].name}</option>`
-            }
-            document.getElementById("transactionType_id").innerHTML = content;
-        })
-        axios.get("http://localhost:8080/users").then((res) => {
-            let data1 = res.data
-            let content1;
-            for (let i = 0; i < data1.length; i++) {
-                content1 += `<option value=${data1[i].id}>${data1[i].name}</option>`
-            }
-            document.getElementById("user_id").innerHTML = content1;
-        })
-
         function showChart() {
             let scc = "";
             scc += '<section class="content-header">\n' +
@@ -980,7 +928,7 @@
                                 pointStrokeColor: "#c1c7d1",
                                 pointHighlightFill: "#fff",
                                 pointHighlightStroke: "rgba(220,220,220,1)",
-                                data: values/10
+                                data: [1000,20000,30000,6000,10000]
                             }]
                         };
 

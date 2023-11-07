@@ -131,18 +131,10 @@ public class UserController {
         if (!userService.isCorrectConfirmPassword(user)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Xác nhận mật khẩu không khớp. Vui lòng nhập lại.");
         }
-
-//        if (user.getRoles() != null) {
-//            Role role = roleService.findByName("ROLE_ADMIN");
-//            Set<Role> roles = new HashSet<>();
-//            roles.add(role);
-//            user.setRoles(roles);
-//        } else {
-//            Role role1 = roleService.findByName("ROLE_USER");
-//            Set<Role> roles1 = new HashSet<>();
-//            roles1.add(role1);
-//            user.setRoles(roles1);
-//        }
+            Role role1 = roleService.findByName("ROLE_USER");
+            Set<Role> roles1 = new HashSet<>();
+            roles1.add(role1);
+            user.setRoles(roles1);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setConfirmPassword(passwordEncoder.encode(user.getConfirmPassword()));
         userService.save(user);
