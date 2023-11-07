@@ -11,6 +11,9 @@ function showFormRegister(){
         <td><input type="password" id="password" placeholder="password : "></td>                
         </tr>
         <tr>
+        <td><input type="password" id="confirm" placeholder="password : "></td>                
+        </tr>
+        <tr>
         <td><button onclick="register()">Register</button></</td>
 </tr>
     </table>`

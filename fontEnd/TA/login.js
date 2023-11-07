@@ -1,3 +1,5 @@
+
+let str ='';
 function login() {
     let data = {
         username: document.getElementById("name").value,
@@ -10,9 +12,9 @@ function login() {
             localStorage.setItem('userId', id);
             localStorage.setItem('name', username);
             window.location.href = "../templates/all-admin-datalist.html";
-            if(data.name === admin) {
-                document.getElementById('admin').innerHTML =`<div onclick="managerUser()">Manage user</div>`
-            }
+            // if(data.username === admin) {
+            //     document.getElementById('admin').innerHTML =`<div onclick="managerUser()">Manage user</div>`
+            // }
             loadUser();
         })
         .catch((error) => {
@@ -27,7 +29,11 @@ function managerUser(){
     axios.get('http://localhost:8080/users').then((res) =>{
         let data = res.data;
         for (let i= 0; i< data.length; i++ ){
-            str += `<div>${data[i].name}<button onclick="deleteUser(${data[i].id})">Delete</button></div>`
+            str += `<div>${data[i].name}
+            </div>`
+            if(localStorage.getItem('name') === admin){
+                str += `<button onclick="deleteUser(${data[i].id})">Delete</button>`
+            }
         }
         document.getElementById('body').innerHTML = str;
     });
@@ -38,4 +44,20 @@ function deleteUser(id) {
 
         managerUser();
     });
+}
+function showFormLogin(){
+    document.getElementById('body').innerHTML = `
+    <table>
+    <h2>Login</h2>
+        <tr>
+        <td><input type="text" id="name" placeholder=" Name: "></td>
+        </tr>
+        <tr>
+        <td><input type="password" id="psw" placeholder="password : "></td>                
+        </tr>
+        <tr>
+        <td><button onclick="login()">Login</button></</td>
+</tr>
+    </table>`
+
 }

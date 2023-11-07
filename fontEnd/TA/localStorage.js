@@ -1,5 +1,4 @@
 function loadUser(){
-    let name = localStorage.getItem('name');
     if(name ==null){
         window.location.href = "all-admin-login.html"
     }else {
