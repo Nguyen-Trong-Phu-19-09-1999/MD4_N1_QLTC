@@ -29,6 +29,21 @@
         document.getElementById("user").innerHTML = text;
     })
 
+    let text = "";
+    axios.get("http://localhost:8080/users").then((results) => {
+        let array = results.data;
+        console.log(array)
+        for (let i = array.length-1; i >= array.length -5 ; i--) {
+            text += `
+            <tr >
+                 <td>${array[i].id}</td>
+                 <td>${array[i].username}</td>
+                 <td>${array[i].roles[0].name}</td>
+            </tr>`
+        }
+        document.getElementById("user").innerHTML = text;
+    })
+
 
 </script>
 

@@ -342,7 +342,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a onclick="showList()"><i class="fa fa-transgender"></i> Transaction</a></li>
-                                <li><a href="#"><i class="fa fa-ticket"></i> Transaction Type</a></li>
+                                <li><a href="../MNTransType/index.html"><i class="fa fa-ticket"></i> Transaction Type</a></li>
                                 <li><a onclick="showChart()"><i class="fa fa-area-chart"></i>Chart</a></li>
                             </ul>
                         </li>
@@ -404,30 +404,25 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel2"
-                        style="align-items: center;margin: auto;font-size: 13px">Thêm Mới</h5>
+                        style="align-items: center;margin: auto;font-size: 13px">5 User mới nhất</h5>
                 </div>
                 <div class="modal-body">
                     <form role="form" novalidate="novalidate">
                         <table id=dataList class=table table-bordered table-striped table-hover dataTable>
                             <thead>
                             <tr>
-                                <th>Tên hành động</th>
-                                <th>Tiền</th>
-                                <th>Ngày Gửi</th>
-                                <th>Ghi chú</th>
-                                <th>Người tạo</th>
+                                <th>ID User</th>
+                                <th>User Name</th>
+                                <th>Enabled</th>
+
                             </tr>
                             </thead>
-                            <tbody style="text-align: center">
-                           <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <tbody  id="abc" style="text-align: center">
                             </tbody>
                         </table>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -537,7 +532,7 @@
                 "                    <!-- small box -->\n" +
                 "                    <div class=\"small-box bg-aqua\">\n" +
                 "                        <div class=\"inner\">\n" +
-                "                            <h3 id ='quantity'></h3>\n" +
+                "                            <h3 id ='userquantity'></h3>\n" +
                 "                            <p>Người dùng</p>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"icon\">\n" +
@@ -684,6 +679,27 @@
                 });
             });
         }
+
+        axios.get("http://localhost:8080/users").then((resulttotal) => {
+            let array = resulttotal.data;
+            document.getElementById("userquantity").innerHTML = array.length;
+        })
+
+        let text = "";
+        axios.get("http://localhost:8080/users").then((lastestusers) => {
+            let array = lastestusers.data;
+            //console.log(array)
+            for (let i = array.length-1; i >= array.length -5 ; i--) {
+                text += `
+            <tr >
+                 <td>${array[i].id}</td>
+                 <td>${array[i].username}</td>
+                 <td>${array[i].enable}</td>
+            </tr>`
+            }
+            document.getElementById("abc").innerHTML = text;
+        })
+
 
         function addList() {
             let data = {
