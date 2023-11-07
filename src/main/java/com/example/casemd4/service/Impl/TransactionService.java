@@ -49,6 +49,6 @@ public class TransactionService implements ITransactionService<Transactions> {
 
     @Override
     public List<Transactions> find5TransactionFamilyExpenseNeares() {
-        return iTransactionRepository.find5TransactionFamilyExpenseNearest();
+        return iTransactionRepository.findTopByOrOrderByDateDateDesc();
     }
 }

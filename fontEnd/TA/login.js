@@ -10,6 +10,9 @@ function login() {
             localStorage.setItem('userId', id);
             localStorage.setItem('name', username);
             window.location.href = "../templates/all-admin-datalist.html";
+            if(username === admin) {
+                document.getElementById('admin').innerHTML =`<div onclick="managerUser()">Manage user</div>`
+            }
             loadUser();
         })
         .catch((error) => {
@@ -20,21 +23,19 @@ function login() {
             }
         });
 }
+function managerUser(){
+    axios.get('http://localhost:8080/users').then((res) =>{
+        let data = res.data;
+        for (let i= 0; i< data.length; i++ ){
+            str += `<div>${data[i].name}<button onclick="deleteUser(${data[i].id})">Delete</button></div>`
+        }
+        document.getElementById('body').innerHTML = str;
+    });
 
-function showFormLogin(){
-    document.getElementById('body').innerHTML = `
+}
+function deleteUser(id) {
+    axios.delete('http://localhost:8080/users/' + id).then(res => {
 
-    <table>
-    <h2>Login</h2>
-        <tr>
-        <td><input type="text" id="name"></td>
-        </tr>
-        <tr>
-        <td><input type="password" id="psw"></td>
-        </tr>
-         <tr>
-         <td><button onclick="login()">Login</button></tr>
-         </td>
-</tr>
-    </table>`
+        managerUser();
+    });
 }

@@ -21,11 +21,11 @@ public interface ITransactionRepository extends JpaRepository<Transactions, Long
 
     // tổng chi tiêu gia đình trong 1 tháng
     @Query("SELECT SUM(t.money) FROM Transactions t " +
-            "WHERE MONTH(t.date) = :day ")
+            "WHERE day(t.date) = :day ")
     Double getTotalMoneyByDay(@Param("day") Integer day);
 
     // lấy ra 5 giao dịch chi tiêu gia đình gần nhất
     @Query("SELECT t FROM Transactions t " +
             "ORDER BY t.date DESC")
-    List<Transactions> find5TransactionFamilyExpenseNearest();
+    List<Transactions> findTopByOrOrderByDateDateDesc();
 }
