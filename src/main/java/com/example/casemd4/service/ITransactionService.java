@@ -14,5 +14,7 @@ public interface ITransactionService<T> extends IGenerateService<Transactions>{
 
     List<Transactions> find5TransactionFamilyExpenseNeares();
 
-//    Iterable<Transactions> getAllByDateAndTransactionType();
+    Iterable<Transactions> getAllByDate(Integer day);
+    Iterable<Transactions> getMonth(Integer month);
+    Iterable<Transactions> getYear(Integer year);
 }

@@ -1,8 +1,6 @@
 package com.example.casemd4.security;
 
-import com.example.casemd4.security.jwt.CustomAccessDeniedHandler;
-import com.example.casemd4.security.jwt.JwtAuthenticationFilter;
-import com.example.casemd4.security.jwt.RestAuthenticationEntryPoint;
+import com.example.casemd4.security.jwt.*;
 import com.example.casemd4.service.IUserService;
 import com.example.casemd4.service.Impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,19 +69,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().ignoringAntMatchers("/**");
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
         http.authorizeRequests()
-                .antMatchers( "/login", "/register ", "/**").permitAll()
-//                .antMatchers( "/users/**").access("hasRole('ROLE_USER')")
-//                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-//                .antMatchers(HttpMethod.GET
-//                        ).access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-//                .antMatchers(HttpMethod.DELETE, "/categories",
-//                        "/typeOfQuestions",
-//                        "/questions",
-//                        "/answers",
-//                        "/quizzes",
-//                        "/hello").access("hasRole('ROLE_ADMIN')")
-//                .antMatchers(HttpMethod.PUT, "/users")
-//                .access("hasRole('ROLE_USER')")
+                .antMatchers( "/login", "/register","/**").permitAll()
+                .antMatchers( "/users/**").access("hasRole('ROLE_USER')")
+                .antMatchers("/users/**","/transaction/**","api/transactionType/**","/transaction/MoneyDay/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.GET
+                        ).access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.DELETE, "/categories",
+                        "/typeOfQuestions",
+                        "/questions",
+                        "/answers",
+                        "/quizzes",
+                        "/hello").access("hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.PUT, "/users")
+                .access("hasRole('ROLE_USER')")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));

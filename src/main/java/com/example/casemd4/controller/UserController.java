@@ -2,6 +2,7 @@ package com.example.casemd4.controller;
 
 import com.example.casemd4.model.JwtResponse;
 import com.example.casemd4.model.Role;
+import com.example.casemd4.model.Transactions;
 import com.example.casemd4.model.User;
 import com.example.casemd4.service.Impl.JwtService;
 import com.example.casemd4.service.Impl.RoleService;
@@ -106,8 +107,7 @@ public class UserController {
 
     @GetMapping("/users")
     public ResponseEntity<Iterable<User>> showAllUser() {
-        Iterable<User> users = userService.findAll();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/admin/users")
@@ -187,4 +187,13 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<User> delete(@PathVariable Long id){
+        Optional<User> transactions1 = userService.findById(id);
+        if (transactions1.isPresent()){
+            userService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

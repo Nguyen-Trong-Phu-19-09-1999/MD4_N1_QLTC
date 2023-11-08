@@ -6,10 +6,13 @@ function login() {
 
     axios.post("http://localhost:8080/login", data)
         .then((response) => {
-            const { id, username } = response.data;
+            const { id, username, token, accessToken,roles} = response.data;
+            console.log(response.data)
             localStorage.setItem('userId', id);
             localStorage.setItem('name', username);
-            window.location.href = "../templates/all-admin-datalist.html";
+            localStorage.setItem("token", accessToken);
+            localStorage.setItem("role", roles)
+            window.location.href = "../templates/alldata.html";
             if(username === admin) {
                 document.getElementById('admin').innerHTML =`<div onclick="managerUser()">Manage user</div>`
             }

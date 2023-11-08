@@ -29,9 +29,14 @@ public interface ITransactionRepository extends JpaRepository<Transactions, Long
             "ORDER BY t.date DESC")
     List<Transactions> findTopByOrOrderByDateDateDesc();
 
-//    @Query("SELECT t FROM Transactions t JOIN transaction_type c ON t.transaction_type_id = :c WHERE DAY(t.date) = :date")
-//    Iterable<Transactions> getAllByDateAndTransactionType();
-//
+    @Query("SELECT t FROM Transactions t WHERE DAY(t.date) = :day")
+    Iterable<Transactions> getAllByDate(@Param("day") Integer day);
+
+    @Query("SELECT t FROM Transactions t JOIN t.transactionType tt WHERE MONTH(t.date) = :month AND tt = :transactionType")
+    Iterable<Transactions> getMonth(@Param("month") Integer month);
+
+    @Query("SELECT t FROM Transactions t WHERE YEAR(t.date) = :year")
+    Iterable<Transactions> getYear(@Param("year") Integer year);
 
 
 }

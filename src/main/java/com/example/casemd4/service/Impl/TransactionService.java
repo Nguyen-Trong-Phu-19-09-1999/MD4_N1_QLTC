@@ -52,8 +52,18 @@ public class TransactionService implements ITransactionService<Transactions> {
         return iTransactionRepository.findTopByOrOrderByDateDateDesc();
     }
 
-//    @Override
-//    public Iterable<Transactions> getAllByDateAndTransactionType() {
-//        return iTransactionRepository.getAllByDateAndTransactionType();
-//    }
+    @Override
+    public Iterable<Transactions> getAllByDate(Integer day) {
+        return iTransactionRepository.getAllByDate(day);
+    }
+
+    @Override
+    public Iterable<Transactions> getMonth(Integer month) {
+        return iTransactionRepository.getMonth(month);
+    }
+
+    @Override
+    public Iterable<Transactions> getYear(Integer year) {
+        return iTransactionRepository.getYear(year);
+    }
 }

@@ -25,4 +25,5 @@ public interface IUserService extends UserDetailsService {
     boolean isRegister(User user);
 
     boolean isCorrectConfirmPassword(User user);
+    void delete(Long id);
 }

@@ -90,4 +90,17 @@ public class TransactionController {
         return transactionService.find5TransactionFamilyExpenseNeares();
     }
 
+    @GetMapping("/abc/{day}")
+    public ResponseEntity<Iterable<Transactions>> getAllByDate(@PathVariable Integer day){
+        return new ResponseEntity<>(transactionService.getAllByDate(day),HttpStatus.OK);
+    }
+    @GetMapping("/xyz/{month}")
+    public ResponseEntity<Iterable<Transactions>> getAllByMonth(@PathVariable Integer month){
+        return new ResponseEntity<>(transactionService.getMonth(month),HttpStatus.OK);
+    }
+
+    @GetMapping("/hug/{year}")
+    public ResponseEntity<Iterable<Transactions>> getYear(@PathVariable Integer year){
+        return new ResponseEntity<>(transactionService.getYear(year),HttpStatus.OK);
+    }
 }
